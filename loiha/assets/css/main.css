@@ -63,6 +63,7 @@ a {
     height: calc(100vh - 56px);
     overflow: hidden;
     z-index: 1000;
+    padding: 1rem;
 }
 
 #sidebar.expanded {
@@ -420,9 +421,79 @@ a {
     color: white;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
+.footer {
+    background: #1c136806; /* Och kulrang fon */
+    color: #1e1e50; /* To‘q ko‘k matn */
+    text-align: center;
+    padding: 15px 0;
+    font-size: 14px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin: 50px 0 0 0;
+  }
+  .social-icons {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  .social-icons a {
+    font-size: 20px;
+    color: #f5a623;
+  }
+  .contact, .version {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #555;
+    text-align: center;
+  }
+  .footer-nav img{
+    width: 120px;
+    margin-left: 80px;
+  }
 
 @media (max-width: 768px) {
+    #sidebar {
+        width: 0;
+        padding: 0;
+    }
+    #sidebar.expanded{
+        padding: 1rem;
+    }
+    #sidebar-toggler{
+        margin-left: 0;
+    }
+    .content{
+        margin-left: 10px;
+    }
+    #sidebar.expanded ~ .content {
+        margin-left: 0; /* Sidebar ochilganda content siljimasin */
+    }
     .row {
         gap: 20px;
+    }
+    .container {
+        max-width: 95%;
+    }
+      .social-icons a {
+        font-size: 18px;
+    }
+      .scroll-top {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+        bottom: 10px;
+        right: 10px;
+    }
+    .footer-nav{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .footer-nav img{
+        width: 76px;
+        margin-left: 0px;
+        margin-right: 10px;
     }
 }

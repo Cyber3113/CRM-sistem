@@ -150,13 +150,13 @@ label {
 .btn-login {
     width: 100%;
     padding: 0.75rem;
-    background-color: var(--buttons-color);
+    background-color: #0dcbae;
     color: white;
     font-size: 1rem;
 }
 
 .btn-login:hover {
-    background-color: #ffc155;
+    background-color: var(--main-color);
     color: white;
 }
 

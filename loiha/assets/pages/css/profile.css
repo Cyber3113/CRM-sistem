@@ -267,38 +267,6 @@
     color: white;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
   }
-
-  /* Footer asosiy dizayni */
-.footer {
-    background-color: white; /* Kunduzgi rejim uchun */
-    color: black;
-    padding: 20px 0;
-    text-align: center;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); /* Soya effekti */
-  }
-  
-  /* Footer havolalari */
-  .footer a {
-    color: black;
-    text-decoration: none;
-    transition: 0.3s;
-  }
-  
-  .footer a:hover {
-    color: var(--main-color);
-  }
-  
-  /* Ijtimoiy tarmoqlar ikonkalari */
-  .footer i {
-    font-size: 20px;
-    margin: 0 10px;
-    transition: 0.3s;
-  }
-  
-  .footer i:hover {
-    color: var(--main-color);
-  }
-  
   /* Tungi rejim uchun */
   .dark-mode .footer {
     background-color: #1e1e1e;
@@ -438,11 +406,28 @@
   width: 400px;
 }
 @media (max-width: 800px) {
+  #sidebar {
+    width: 0;
+    padding: 0;
+}
+#sidebar.expanded{
+    padding: 1rem;
+}
+#sidebar-toggler{
+    margin-left: 0;
+}
+.content{
+    margin-left: 10px;
+}
+}
+  #sidebar.expanded ~ .content {
+    margin-left: 0; /* Sidebar ochilganda content siljimasin */
+  }
   .modal-content{
       margin: 0 auto;
       width: 320px;
   }
-}
+
 .buttons {
   margin-top: 20px;
   display: flex;

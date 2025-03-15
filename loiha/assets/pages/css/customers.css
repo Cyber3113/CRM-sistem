@@ -404,8 +404,27 @@ select{
     text-align: start;
 }
 @media (max-width: 800px) {
+    #sidebar {
+        width: 0;
+        padding: 0;
+    }
+    #sidebar.expanded{
+        padding: 1rem;
+    }
+    #sidebar-toggler{
+        margin-left: 0;
+    }
+    .content{
+        margin-left: 10px;
+    }
+    #sidebar.expanded ~ .content {
+        margin-left: 0; /* Sidebar ochilganda content siljimasin */
+    }
     .modal-content{
         margin: 0 auto;
         width: 320px;
+    }
+    button b {
+        display: none;
     }
 }
