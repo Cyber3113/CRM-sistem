@@ -1,0 +1,468 @@
+@import url('../../css/main.css');
+
+:root {
+  --main-color: #0aaa92;
+  --text-color: #1b1368;
+  --buttons-color: #fdb232;
+}
+
+/* Navbar */
+.navbar {
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+  }
+  a{
+    text-decoration: none;
+  }
+  /* Sidebar */
+  #sidebar {
+    width: 80px;
+    background-color: white;
+    box-shadow: 4px 0 6px rgba(0, 0, 0, 0.1);
+    transition: width 0.3s;
+    position: fixed;
+    top: 0; /* Navbar balandligi */
+    left: 0;
+    height: calc(100vh - 56px);
+    overflow: hidden;
+    z-index: 1000;
+  }
+
+  #sidebar.expanded {
+    width: 250px;
+  }
+
+  #sidebar .nav-link {
+    color: black;
+    transition: 0.3s;
+  }
+
+  #sidebar .nav-link:hover {
+    background-color: var(--main-color);
+    color: white;
+    border-radius: 5px;
+  }
+
+  #sidebar span {
+    display: none;
+  }
+
+  #sidebar.expanded span {
+    display: inline;
+  }
+
+  /* Sidebar toggler button */
+  #sidebar-toggler {
+    /* width: 100%; */
+    text-align: left;
+    background: none;
+    border: none;
+    margin-left: 80px;
+    margin-top: 10px;
+    color: black;
+    /* padding: 11px; */
+    font-size: 20px;
+}
+  /* Dark Mode */
+  .dark-mode {
+    background-color: #121212;
+    color: white;
+  }
+
+  .dark-mode .navbar, .dark-mode #sidebar {
+    background-color: #1e1e1e;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  }
+
+  .dark-mode .nav-link {
+    color: white;
+  }
+
+  .dark-mode .nav-link:hover {
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+  }
+
+  .dark-mode #sidebar-toggler {
+    color: white;
+  }
+  .dark-mode #sidebar .nav-link {
+    color: white;
+  }
+
+  .dark-mode #sidebar .nav-link:hover {
+    background-color: var(--main-color);
+    color: black;
+  }
+
+  /* Content */
+  .content {
+    margin-top: 60px; /* Navbar ostida joylashish */
+    padding: 20px;
+  }
+
+  /* Navbar */
+.navbar {
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+  }
+  /* Sidebar */
+  #sidebar {
+    width: 80px;
+    background-color: white;
+    box-shadow: 4px 0 6px rgba(0, 0, 0, 0.1);
+    transition: width 0.3s;
+    position: fixed;
+    top: 0; /* Navbar balandligi */
+    left: 0;
+    height: calc(100vh - 56px);
+    overflow: hidden;
+    z-index: 1000;
+  }
+  
+  #sidebar.expanded {
+    width: 250px;
+  }
+  
+  /* Sidebar textlar faqat ochilganda chiqadi */
+  #sidebar span {
+    display: none;
+  }
+  
+  #sidebar.expanded span {
+    display: inline;
+  }
+  
+  /* Content sidebar ostiga tushib ketmasligi uchun */
+  .content {
+    margin-left: 80px; /* Sidebar doimiy kengligi */
+    margin-top: 60px; /* Navbar ostida joylashish */
+    padding: 20px;
+    transition: margin-left 0.3s;
+  }
+  
+  #sidebar.expanded ~ .content {
+    margin-left: 80px; /* Sidebar ochilganda content siljimasin */
+  }
+
+  .card {
+    border-radius: 10px;
+    transition: 0.3s;
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* 3D soya effekti */
+  }
+  
+  .card:hover {
+    transform: translateY(-5px); /* Hover bo‘lganda ko‘tariladi */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Iconlar - Kattalashtirilgan */
+  .icon-green, .icon-purple, .icon-gray {
+    font-size: 50px; /* Ikonalarni kattalashtirish */
+    padding: 15px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 3D ikonalar */
+  }
+  
+  .icon-green {
+    color: var(--main-color);
+    border: 3px solid var(--main-color);
+  }
+  
+  .icon-purple {
+    color: #6A5ACD;
+    border: 3px solid #6A5ACD;
+  }
+  
+  .icon-gray {
+    color: #A9A9A9;
+    /* border: 3px solid #A9A9A9; */
+  }
+  
+  /* Dark Mode */
+  .dark-mode .card {
+    background-color: #1e1e1e;
+    color: white;
+    /* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); */
+  }
+  
+  .dark-mode .icon-green,
+  .dark-mode .icon-purple,
+  .dark-mode .icon-gray {
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1); /* Dark mode uchun soya */
+  }
+  
+
+  .chart-container {
+    width: 100%;
+    height: 350px; /* Grafiklar to‘g‘ri chiqishi uchun balandlik */
+    position: relative;
+  }
+  
+  .card {
+    border-radius: 10px;
+    transition: 0.3s;
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Dark Mode */
+  .dark-mode .card {
+    background-color: #1e1e1e;
+    color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  }
+
+  
+  .chart-container {
+    width: 100%;
+    height: 350px;
+    position: relative;
+  }
+  
+  .card {
+    border-radius: 10px;
+    transition: 0.3s;
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Dark Mode */
+  .dark-mode .card {
+    background-color: #1e1e1e;
+    color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  }
+
+  
+  .chart-container {
+    width: 100%;
+    height: 350px;
+    position: relative;
+  }
+  
+  .card {
+    border-radius: 10px;
+    transition: 0.3s;
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Dark Mode */
+  .dark-mode .card {
+    background-color: #1e1e1e;
+    color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Footer asosiy dizayni */
+.footer {
+    background-color: white; /* Kunduzgi rejim uchun */
+    color: black;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); /* Soya effekti */
+  }
+  
+  /* Footer havolalari */
+  .footer a {
+    color: black;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+  
+  .footer a:hover {
+    color: var(--main-color);
+  }
+  
+  /* Ijtimoiy tarmoqlar ikonkalari */
+  .footer i {
+    font-size: 20px;
+    margin: 0 10px;
+    transition: 0.3s;
+  }
+  
+  .footer i:hover {
+    color: var(--main-color);
+  }
+  
+  /* Tungi rejim uchun */
+  .dark-mode .footer {
+    background-color: #1e1e1e;
+    color: white;
+  }
+  
+  .dark-mode .footer a {
+    color: white;
+  }
+  
+  .dark-mode .footer a:hover {
+    color: var(--main-color);
+  }
+  
+  .dark-mode .footer hr {
+    border-color: white;
+  }
+
+  /* Profil kartasi */
+.profile-card {
+    background: linear-gradient(135deg, var(--main-color), #00c0ef);
+    color: white;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .profile-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Profil rasmi */
+  .profile-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 4px solid white;
+    object-fit: cover;
+  }
+  
+  /* Profil ma'lumotlari */
+  .profile-body p {
+    font-size: 14px;
+    margin: 8px 0;
+  }
+  
+  .profile-body i {
+    margin-right: 8px;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  /* Statistikalar */
+  .stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+  }
+  
+  .stats div {
+    text-align: center;
+  }
+  
+  .stats h5 {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  .stats p {
+    font-size: 12px;
+    opacity: 0.8;
+  }
+  
+  /* Profil kartasi */
+.card {
+  border-radius: 10px;
+  transition: 0.3s;
+  background-color: white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Profil rasmi */
+.profile-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--main-color);
+}
+
+/* Tugmalar */
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.btn-primary {
+  background-color: var(--main-color);
+  color: white;
+}
+
+/* Tungi rejim */
+.dark-mode .card {
+  background-color: #1e1e1e;
+  color: white;
+}
+
+.dark-mode .profile-img {
+  border-color: #00acee;
+}
+
+.dark-mode .btn-secondary {
+  background-color: #444;
+}
+
+.dark-mode .btn-primary {
+  background-color: var(--main-color);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-content{
+  padding: 20px;
+  margin: auto 50px;
+  width: 400px;
+}
+@media (max-width: 800px) {
+  .modal-content{
+      margin: 0 auto;
+      width: 320px;
+  }
+}
+.buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.buttons button {
+  flex: 1;
+  margin: 5px;
+  padding: 12px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  font-weight: bold;
+}
+#confirmSiteExit {
+  background-color: #06160984;
+  color: white;
+}
+#cancelSiteExit {
+  background-color: #f00b22d0;
+  color: white;
+}

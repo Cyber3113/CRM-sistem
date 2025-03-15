@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Table</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+
+        .table-wrapper {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .table th {
+            cursor: pointer;
+            user-select: none;
+            background-color: #f8f9fa;
+        }
+
+        .table th:hover {
+            background-color: #e9ecef;
+        }
+
+        .delete-btn {
+            transition: all 0.3s ease;
+        }
+
+        .delete-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .checkbox-cell {
+            width: 40px;
+        }
+
+        .modal {
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="table-wrapper">
+        <div class="p-3 border-bottom d-flex justify-content-between align-items-center gap-3">
+            <div class="d-flex gap-2">
+                <input type="text" class="form-control w-auto" id="searchInput" placeholder="Qidirish...">
+                <button class="btn btn-danger delete-btn" id="deleteBtn"><i class="fa-solid fa-trash"></i></button>
+            </div>
+            <button class="btn btn-primary" id="createBtn">+ Yaratish</button>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-hover mb-0">
+                <thead>
+                <tr>
+                    <th class="checkbox-cell">
+                        <input type="checkbox" class="form-check-input" id="selectAll">
+                    </th>
+                    <th data-sort="id">ID ↕</th>
+                    <th data-sort="name">Ism ↕</th>
+                    <th data-sort="position">Lavozim ↕</th>
+                    <th data-sort="salary">Maosh ↕</th>
+                </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="p-3 border-top d-flex justify-content-center" id="pagination"></div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="createModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Yangi xodim qo'shish</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label class="form-label">Ism</label>
+                    <input type="text" class="form-control" id="nameInput">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Lavozim</label>
+                    <input type="text" class="form-control" id="positionInput">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Maosh</label>
+                    <input type="number" class="form-control" id="salaryInput">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bekor qilish</button>
+                <button type="button" class="btn btn-primary">Saqlash</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    const data = [
+        {id: 1, name: 'Aziz Karimov', position: 'Dasturchi', salary: 2500},
+        {id: 2, name: 'Dilshod Aliev', position: 'Dizayner', salary: 2000},
+        {id: 3, name: 'Malika Azizova', position: 'Menejer', salary: 3000},
+        {id: 4, name: 'Jamshid Umarov', position: 'Marketing', salary: 2200},
+        {id: 5, name: 'Nodira Saidova', position: 'Analitik', salary: 2800}
+    ];
+
+    function renderTable() {
+        const tbody = document.querySelector('tbody');
+        tbody.innerHTML = '';
+
+        data.forEach(item => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="form-check-input row-checkbox" data-id="${item.id}">
+                </td>
+                <td>${item.id}</td>
+                <td>${item.name}</td>
+                <td>${item.position}</td>
+                <td>$${item.salary}</td>
+            `;
+            tbody.appendChild(row);
+        });
+    }
+
+    document.getElementById('createBtn').addEventListener('click', () => {
+        const modal = new bootstrap.Modal(document.getElementById('createModal'));
+        modal.show();
+    });
+
+    renderTable();
+</script>
+<script>
+    const itemsPerPage = 5;
+    let currentPage = 1;
+    let sortedData = [...data];
+    let currentSort = {column: '', direction: 'asc'};
+    let selectedRows = new Set();
+
+    function renderTable(items) {
+        const tbody = document.querySelector('tbody');
+        tbody.innerHTML = '';
+
+        items.forEach(item => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                    <td class="checkbox-cell">
+                        <input type="checkbox" class="form-check-input row-checkbox"
+                            data-id="${item.id}" ${selectedRows.has(item.id) ? 'checked' : ''}>
+                    </td>
+                    <td>${item.id}</td>
+                    <td>${item.name}</td>
+                    <td>${item.position}</td>
+                    <td>$${item.salary}</td>
+                `;
+            tbody.appendChild(row);
+        });
+
+        document.querySelectorAll('.row-checkbox').forEach(checkbox => {
+            checkbox.addEventListener('change', handleRowSelect);
+        });
+
+        updateSelectAllCheckbox();
+    }
+
+    function renderPagination() {
+        const totalPages = Math.ceil(sortedData.length / itemsPerPage);
+        const pagination = document.getElementById('pagination');
+        pagination.innerHTML = '';
+
+        for (let i = 1; i <= totalPages; i++) {
+            const button = document.createElement('button');
+            button.innerText = i;
+            button.className = `btn btn-outline-primary mx-1 ${i === currentPage ? 'active' : ''}`;
+            button.addEventListener('click', () => {
+                currentPage = i;
+                updateTable();
+            });
+            pagination.appendChild(button);
+        }
+    }
+
+    function handleRowSelect(e) {
+        const id = Number(e.target.dataset.id);
+        if (e.target.checked) {
+            selectedRows.add(id);
+        } else {
+            selectedRows.delete(id);
+        }
+        updateDeleteButton();
+        updateSelectAllCheckbox();
+    }
+
+    function handleSelectAll(e) {
+        const start = (currentPage - 1) * itemsPerPage;
+        const end = start + itemsPerPage;
+        const currentPageItems = sortedData.slice(start, end);
+
+        if (e.target.checked) {
+            currentPageItems.forEach(item => selectedRows.add(item.id));
+        } else {
+            currentPageItems.forEach(item => selectedRows.delete(item.id));
+        }
+        updateTable();
+        updateDeleteButton();
+    }
+
+    function updateSelectAllCheckbox() {
+        const selectAllCheckbox = document.getElementById('selectAll');
+        const start = (currentPage - 1) * itemsPerPage;
+        const end = start + itemsPerPage;
+        const currentPageItems = sortedData.slice(start, end);
+        const allSelected = currentPageItems.every(item => selectedRows.has(item.id));
+
+        selectAllCheckbox.checked = allSelected;
+    }
+
+    function updateDeleteButton() {
+        const deleteBtn = document.getElementById('deleteBtn');
+        deleteBtn.disabled = selectedRows.size === 0;
+    }
+
+
+    function handleDelete() {
+        console.log('datas:', Array.from(selectedRows));
+        selectedRows.clear();
+        updateDeleteButton();
+        updateTable();
+    }
+
+    function sortData(column) {
+        if (currentSort.column === column) {
+            currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
+        } else {
+            currentSort.column = column;
+            currentSort.direction = 'asc';
+        }
+
+        sortedData.sort((a, b) => {
+            const valueA = a[column];
+            const valueB = b[column];
+
+            if (typeof valueA === 'string') {
+                return currentSort.direction === 'asc'
+                    ? valueA.localeCompare(valueB)
+                    : valueB.localeCompare(valueA);
+            }
+
+            return currentSort.direction === 'asc'
+                ? valueA - valueB
+                : valueB - valueA;
+        });
+
+        currentPage = 1;
+        updateTable();
+    }
+
+    function searchData(term) {
+        if (!term) {
+            sortedData = [...data];
+        } else {
+            sortedData = data.filter(item =>
+                Object.values(item).some(val =>
+                    val.toString().toLowerCase().includes(term.toLowerCase())
+                )
+            );
+        }
+        currentPage = 1;
+        updateTable();
+    }
+
+    function updateTable() {
+        const start = (currentPage - 1) * itemsPerPage;
+        const end = start + itemsPerPage;
+        const paginatedData = sortedData.slice(start, end);
+
+        renderTable(paginatedData);
+        renderPagination();
+    }
+
+    document.querySelectorAll('th[data-sort]').forEach(th => {
+        th.addEventListener('click', () => {
+            const column = th.dataset.sort;
+            sortData(column);
+        });
+    });
+
+    document.getElementById('searchInput').addEventListener('input', (e) => {
+        searchData(e.target.value);
+    });
+
+    document.getElementById('selectAll').addEventListener('change', handleSelectAll);
+
+    document.getElementById('deleteBtn').addEventListener('click', handleDelete);
+
+    updateTable();
+</script>
+
+</body>
+</html>

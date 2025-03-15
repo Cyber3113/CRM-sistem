@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crm - loiha</title>
+    <!-- bOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/partners.css">
+    <!-- icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+        <button class="btn btn-dark mb-3" id="sidebar-toggler">
+            <i class="fas fa-bars"></i>
+        </button>
+        
+        <div class="d-flex align-items-center">
+            <a href="./assets/pages/profile.html" class="nav-link me-3"><i class="fas fa-user"
+                   style="padding: 8px 12px;"></i></a>
+            <button class="btn btn-light border-0" id="darkModeToggle">
+                <i class="fas fa-moon" id="darkModeIcon"></i>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Sidebar -->
+<div class="vh-100 d-flex flex-column p-3" id="sidebar">
+    <a class="navbar-brand" href="/loiha/index.html">
+        <img src="../images/milliycrm-logo-h.png" alt="logo" width="47px" class="logo-h">
+        <img src="../images/milliycrm-logo-w.png" alt="logo" width="100px" class="logo-w">
+    </a>
+      <ul class="nav flex-column flex-grow-1">
+          <li class="nav-item mb-3" data-bs-toggle="tooltip" data-bs-placement="right" title="Dashboard">
+              <a href="../../index.html" class="nav-link">
+                  <i class="fa-solid fa-chart-simple"></i> <span style="margin-left: 10px;"> Dashboard</span>
+              </a>
+          </li>
+          <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Bugalteriya">
+              <a href="../pages/accounting.html" class="nav-link">
+                  <i class="fa-solid fa-calculator"></i> <span style="margin-left: 10px;"> Bugalteriya</span>
+              </a>
+          </li>
+          <li class="nav-item">
+              <a href="../pages/debts.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="right"
+                 title="Qarzlar">
+                  <i class="fa-solid fa-money-bill-transfer"></i> <span style="margin-left: 10px;"> Qarzlar</span>
+              </a>
+          </li>
+          <li class="nav-item">
+              <a href="../pages/tasks.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="right"
+                 title="Vazifalar">
+                  <i class="fa-solid fa-list-check"></i> <span style="margin-left: 10px;"> Vazifalar</span>
+              </a>
+          </li>
+          <li class="nav-item">
+              <a href="../pages/products.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="end"
+                 title="Mahsulotlar">
+                  <i class="fa-solid fa-shop"></i><span style="margin-left: 10px;"> Mahsulotlar</span>
+              </a>
+          </li>
+          <li class="nav-item">
+              <a href="../pages/customers.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="end"
+                 title="Mijozlar">
+                  <i class="fa fa-users"></i><span style="margin-left: 10px;"> Mijozlar</span>
+              </a>
+          </li>
+          <li class="nav-item">
+              <a href="../pages/partners.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="end"
+                 title="Hamkorlar">
+                  <i class="fa-solid fa-user-group"></i><span style="margin-left: 10px;"> Hamkorlar</span>
+              </a>
+          </li>
+          <li class="nav-item">
+              <a href="../pages/payment.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="end"
+                 title="To'lovlar">
+                  <i class="fa-solid fa-wallet"></i><span style="margin-left: 10px;"> To'lovlar</span>
+              </a>
+          </li>
+          <li class="nav-item">
+              <a href="../pages/chat.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="end"
+                 title="Aloqa">
+                  <i class="fa-brands fa-rocketchat"></i><span style="margin-left: 10px;"> Aloqa</span>
+              </a>
+          </li>
+          <li class="nav-item mt-auto">
+              <a href="/loiha/login.html" class="nav-link text-danger" data-target="#exitModal" data-bs-toggle="tooltip"
+                 title="Hisobdan chiqish">
+                  <i class="fa-solid fa-right-from-bracket"></i> <span style="margin-left: 10px;"> Chiqish</span>
+              </a>
+          </li>
+      </ul>
+  </div>
+
+<!-- Main Content -->
+<div class="content">
+
+    <h1 style="text-align: center; margin-top: 50px;font-weight: 600;">Maxsulotlar ro'yxati</h1>
+
+    <div class="table-wrapper">
+        <div class="p-3 border-bottom d-flex justify-content-between align-items-center gap-3">
+            <div class="d-flex gap-2">
+                <input type="text" class="form-control w-auto" id="searchInput" placeholder="Qidirish...">
+                <button class="btn btn-danger delete-btn" id="deleteBtn"><i class="fa-solid fa-trash"></i></button>
+            </div>
+            <button class="btn btn-primary" id="createBtn">+ Yaratish</button>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-hover mb-0">
+                <thead>
+                <tr>
+                    <th class="checkbox-cell">
+                        <input type="checkbox" class="form-check-input" id="selectAll">
+                    </th>
+                    <th data-sort="id">ID ↕</th>
+                    <th data-sort="name">Nomi ↕</th>
+                    <th data-sort="price">Narx ↕</th>
+                    <th data-sort="status">Holati ↕</th>
+                    <th data-sort="quantity">Miqdori ↕</th>
+                </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="p-3 border-top d-flex justify-content-center" id="pagination"></div>
+    </div>
+
+
+    <div class="modal fade" id="createModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Yangi mahsulot qo'shish</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">Mahsulot nomi</label>
+                        <input type="text" class="form-control" id="nameInput" placeholder="Cola">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Narxi</label>
+                        <input type="number" class="form-control" id="price" placeholder="1.000.000">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Holati</label>
+                        <input type="text" class="form-control" id="status" placeholder="Yangi">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Miqdori (dona) </label>
+                        <input type="number" class="form-control" id="quantity" placeholder="100">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bekor qilish</button>
+                    <button type="button" class="btn btn-primary">Saqlash</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    </div>
+
+
+
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js" integrity="sha512-b+nQTCdtTBIRIbraqNEwsjB6UvL3UEMkXnhzd8awtCYh0Kcsjl9uEgwVFVbhoj3uu1DO1ZMacNvLoyJJiNfcvg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./js/partners.js"></script>
+    <script src="./js/dark-mode.js"></script>
+</body>
+</html>

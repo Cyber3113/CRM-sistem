@@ -1,0 +1,480 @@
+@import url('./customers.css');
+@import url('../../css/main.css');
+
+:root {
+    --main-color: #0aaa92;
+    --text-color: #1b1368;
+    --buttons-color: #fdb232;
+}
+
+.chat-container {
+    width: 100%;
+    height: 500px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.chat-header {
+    background-color: var(--main-color);
+    padding: 10px;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.chat-header .profile-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.chat-header .username {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.chat-body {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 10px;
+    background-color: #fff;
+}
+
+.chat-body .message {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.chat-body .message.left {
+    justify-content: flex-start;
+}
+
+.chat-body .message .message-content {
+    background-color: var(--main-color);
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+    max-width: 70%;
+}
+
+.chat-body .message.right .message-content {
+    background-color: #dc3545;
+}
+
+.chat-body .message .message-content .message-time {
+    font-size: 12px;
+    position: absolute;
+    bottom: -18px;
+    right: 10px;
+}
+
+.chat-body .message .message-options {
+    position: absolute;
+    top: -18px;
+    right: 0;
+}
+
+.chat-footer {
+    display: flex;
+    padding: 10px;
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+}
+
+.chat-footer input {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+.chat-footer button {
+    padding: 8px 20px;
+}
+
+
+#chatbot-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--main-color);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 24px;
+}
+
+#chat-container {
+    display: none;
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 300px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+#chat-header {
+    background: var(--main-color);
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#chat-header span {
+    float: right;
+    cursor: pointer;
+}
+
+#chat-body {
+    height: 250px;
+    overflow-y: auto;
+    padding: 10px;
+    background: #f1f1f1;
+}
+
+#chat-footer {
+    display: flex;
+    padding: 10px;
+    background: #fff;
+}
+
+#chat-input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.ch-btn {
+    background: var(--main-color);
+    color: white;
+    border: none;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content{
+    padding: 20px;
+    margin: auto 50px;
+    width: 400px;
+    text-align: start;
+}
+@media (max-width: 800px) {
+    .modal-content{
+        margin: 0 auto;
+        width: 320px;
+    }
+}
+
+.buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttons button {
+    flex: 1;
+    margin: 5px;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+}
+
+#confirmSiteExit {
+    background-color: #06160984;
+    color: white;
+}
+
+#cancelSiteExit {
+    background-color: #f00b22d0;
+    color: white;
+}
+
+#notification {
+    position: fixed;
+    bottom: 80px;
+    right: 50%;
+    transform: translateX(50%);
+    background: var(--main-color);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+}
+
+#card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    /* width: 80%; */
+    /* max-width: 1000px; */
+    margin-top: 20px;
+    /* justify-content: center; */
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: relative;
+    width: 325px;
+    margin-left: 15px;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal, .confirm-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #00000014;
+    justify-content: center;
+    align-items: center;
+}
+
+.close {
+    display: flex;
+    justify-content: end;
+    cursor: pointer;
+}
+
+button {
+    padding: 10px 25px;
+    border: none;
+    background: var(--main-color);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+select {
+    width: 180px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+    border-radius: 4px;
+    background: #f8f9fa;
+    margin: 5px 10px 5px 10px;
+}
+.buttonsdel {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.addbutton {
+    display: flex;
+    justify-content: end;
+    margin-top: 20px;
+    margin-right: 25px;
+}
+
+/*input[type="text"], input[type="file"] {*/
+/*    width: 98%;*/
+/*    padding: 8px;*/
+/*    margin: 6px 0;*/
+/*    border: 1px solid #ccc;*/
+/*    border-radius: 5px;*/
+/*    font-size: 14px;*/
+/*}*/
+
+.card-edit {
+    position: absolute;
+    top: 101px;
+    /* bottom: 20px; */
+    right: 80px;
+    display: flex;
+    gap: 10px;
+}
+#sidebar.expanded ~ .content {
+    margin-left: 315px; /* Sidebar ochilganda content siljimasin */
+}
+.card-delete {
+    position: absolute;
+    top: 17px;
+    /* bottom: 20px; */
+    right: 12px;
+    display: flex;
+    gap: 10px;
+}
+
+.card-icons i {
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.card-edit svg {
+    cursor: pointer;
+}
+
+.card-delete svg {
+    color: rgb(156, 0, 0);
+    cursor: pointer;
+}
+.input-group{
+    display: flex;
+    justify-content: center;
+    width: 45.5%;
+}
+.input-group #search{
+    width: 20px;
+}
+.filter{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.filter-btn{
+    margin-left: 10px;
+    padding: 5px 30px;
+}
+#edit-modal {
+    display: none;
+}
+.title-modal{
+    font-size: 20px;
+    color: var(--main-color);
+    margin-bottom: 40px;
+}
+.form-control[type=file]{
+    color: rgb(172, 172, 172);
+}
+.save{
+    padding: 10px 135px;
+}
+.edit-save{
+    padding: 10px 30px;
+}
+.form-control::placeholder{
+    color: #b4b4b4;
+}
+*::placeholder{
+    color: #b4b4b4;
+}
+textarea{
+    display: block;
+    width: 100%; 
+    cursor:n-resize; 
+    padding: 5px;
+}
+h6{
+    font-weight: 500;
+}
+p{
+    text-align: start;
+    margin-left: 10px;
+}
+.dark-mode select{
+    width: 180px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+    border-radius: 4px;
+    background: #f8f9fa;
+    margin: 5px 10px 5px 10px;
+}
+.card img {
+    border-radius: 50%;
+    margin-left: 90px;
+}
+@media (max-width: 800px) {
+    #chat-container {
+        width: 250px;
+        right: 25px;
+    }
+    .card-edit{
+        right: 60px;
+    }
+    .addbutton{
+        margin-right: 20px;
+    }
+    .input-group{
+        width: 100%;
+    }
+    #branchFilter{
+        margin-left: -8px;
+    }
+    .filter{
+        display: block;
+    }
+    .filter-btn{
+        padding: 5px 101px;
+        margin-top: 8px;
+        margin-left: -6px;
+    }
+    .filter-dropdowns{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-right: -10px;
+    }
+    .dark-mode select{
+        width: 125px;
+    }
+    select {
+        width: 125px;
+    }
+    .save{
+        padding: 10px 95px;
+    }
+    .card img{
+        margin-left: 70px;
+    }
+}
