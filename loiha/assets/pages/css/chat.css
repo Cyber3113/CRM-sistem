@@ -463,13 +463,15 @@ p{
   }
   .footer-nav img{
     width: 120px;
-    margin-left: 80px;
+    margin-left: 25px;
   }
-
+  .content h1{
+    text-align: center; 
+    margin-top: 50px;
+    font-weight: 600;
+    color: var(--text-color);
+}
 @media (max-width: 800px) {
-    #sidebar.expanded ~ .content {
-        margin-left: 0; /* Sidebar ochilganda content siljimasin */
-    }
     #chat-container {
         width: 250px;
         right: 25px;
@@ -490,7 +492,7 @@ p{
         display: block;
     }
     .filter-btn{
-        padding: 5px 101px;
+        padding: 5px 170px;
         margin-top: 8px;
         margin-left: -6px;
     }
@@ -514,7 +516,7 @@ p{
     }
     
 }
-@media (min-width: 350px) {
+@media (max-width: 350px) {
     #sidebar {
         width: 0;
         padding: 0;
@@ -537,7 +539,7 @@ p{
       .social-icons a {
         font-size: 18px;
     }
-      .scroll-top {
+    .scroll-top {
         width: 40px;
         height: 40px;
         font-size: 16px;
@@ -548,10 +550,5 @@ p{
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-    }
-    .footer-nav img{
-        width: 76px;
-        margin-left: 0px;
-        margin-right: 10px;
     }
 }

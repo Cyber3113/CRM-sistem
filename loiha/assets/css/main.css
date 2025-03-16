@@ -240,7 +240,7 @@ a {
 }
 .content h1{
     text-align: center; 
-    margin-top: -50px;
+    margin-top: -25px;
     font-weight: 600;
     color: var(--text-color);
 }
