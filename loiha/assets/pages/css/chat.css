@@ -411,6 +411,10 @@ textarea{
     cursor:n-resize; 
     padding: 5px;
 }
+.dark-mode textarea{
+    background-color: #353535;
+    color: white;
+}
 h6{
     font-weight: 500;
 }
@@ -471,6 +475,13 @@ p{
     font-weight: 600;
     color: var(--text-color);
 }
+.dark-mode .content h1 {
+    color: white;
+}
+.input-control{
+    display: flex;
+    justify-content: space-between;
+}
 @media (max-width: 800px) {
     #chat-container {
         width: 250px;
@@ -492,7 +503,7 @@ p{
         display: block;
     }
     .filter-btn{
-        padding: 5px 170px;
+        padding: 5px 130px;
         margin-top: 8px;
         margin-left: -6px;
     }
@@ -513,6 +524,13 @@ p{
     }
     .card img{
         margin-left: 70px;
+    }
+    .input-control{
+        display: block;
+        justify-content: space-between;
+    }
+    .mb-3{
+        width: auto;
     }
     
 }
@@ -550,5 +568,12 @@ p{
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+    }
+    .input-control{
+        display: block;
+        justify-content: space-between;
+    }
+    .mb-3{
+        width: 300px;
     }
 }

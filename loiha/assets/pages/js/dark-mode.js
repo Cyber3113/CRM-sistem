@@ -14,6 +14,13 @@ document.addEventListener("DOMContentLoaded", function () {
         sidebar.classList.toggle("expanded");
     });
 
+        // Sidebarni tashqarisiga bosilganda yopish
+        document.addEventListener("click", function (event) {
+            if (!sidebar.contains(event.target) && !sidebarToggler.contains(event.target)) {
+                sidebar.classList.remove("expanded");
+            }
+        });
+
     // 🌙 Dark mode toggle
     darkModeToggle.addEventListener("click", function () {
         document.body.classList.contains("dark-mode") ? disableDarkMode() : enableDarkMode();

@@ -37,6 +37,8 @@ a{
 }
 
 #sidebar .nav-link {
+    display: flex;
+    align-items: center;
     color: black;
     transition: 0.3s;
 }

@@ -75,11 +75,12 @@ a {
 #sidebar.expanded .logo-h {
     margin-top: 2px;
 }
-#sidebar .nav-link {
+#sidebar .nav-link { 
+    display: flex;
+    align-items: center;
     color: black;
     transition: 0.3s;
 }
-
 #sidebar .nav-link:hover {
     background-color: var(--main-color);
     color: white;
@@ -112,7 +113,12 @@ a {
     background-color: var(--main-color);
     color: aliceblue !important;
 }
-
+.nav-link i{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 0 0 0;
+}
 .hover a {
     color: aliceblue;
 }
@@ -150,7 +156,9 @@ a {
     background-color: var(--main-color);
     color: black;
 }
-
+.dark-mode .footer p{
+    color: #b8b8b8;
+}
 /* Content */
 .content {
     margin-top: 60px; /* Navbar ostida joylashish */
