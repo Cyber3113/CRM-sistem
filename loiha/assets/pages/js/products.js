@@ -95,3 +95,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     updateTable();
 });
+
+
+document.getElementById("languageSwitcher").addEventListener("change", function () {
+    const selectedOption = this.options[this.selectedIndex];
+    const flagUrl = selectedOption.getAttribute("data-flag");
+    document.getElementById("flagIcon").src = flagUrl;
+  });
+  

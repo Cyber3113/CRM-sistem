@@ -18,11 +18,21 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
+        <a class="navbar-brand" href="./index.html">
+            <img src="./assets/images/milliycrm-logo.png" alt="logo" width="130px">
+        </a>
         <button class="btn btn-dark mb-3" id="sidebar-toggler">
             <i class="fas fa-bars"></i>
         </button>
         
         <div class="d-flex align-items-center">
+            <div class="language-switcher">
+                <img id="flagIcon" src="https://flagcdn.com/w40/uz.png" alt="UZ Flag">
+                <select id="languageSwitcher">
+                    <option value="uz" data-flag="https://flagcdn.com/w40/uz.png">🇺🇿</option>
+                    <option value="ru" data-flag="https://flagcdn.com/w40/ru.png">🇷🇺</option>
+                </select>
+            </div>
             <a href="./assets/pages/profile.html" class="profile">
                 <i class="fas fa-user"></i>
                 <span class="name">Kholmatov</span>
@@ -37,10 +47,7 @@
 
 <!-- Sidebar -->
 <div class="vh-100 d-flex flex-column" id="sidebar">
-    <a class="navbar-brand" href="./index.html">
-        <img src="./assets/images/milliycrm-logo-h.png" alt="logo" width="47px" class="logo-h">
-        <img src="./assets/images/milliycrm-logo-w.png" alt="logo" width="100px" class="logo-w">
-    </a>
+
     <ul class="nav flex-column flex-grow-1">
         <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="right"
             title="Dashboard">
@@ -118,7 +125,6 @@
 
 <!-- Main Content -->
 <div class="content">
-
     <h1 style="margin-top: 150px;">Umumiy ma'lumotlar</h1>
     <div class="contayner mt-4">
 

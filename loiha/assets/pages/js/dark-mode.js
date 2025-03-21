@@ -38,3 +38,11 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem("dark-mode", "disabled");
     }
 });
+
+
+document.getElementById("languageSwitcher").addEventListener("change", function () {
+    const selectedOption = this.options[this.selectedIndex];
+    const flagUrl = selectedOption.getAttribute("data-flag");
+    document.getElementById("flagIcon").src = flagUrl;
+  });
+  

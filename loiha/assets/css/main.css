@@ -59,7 +59,7 @@ a {
     box-shadow: 4px 0 6px rgba(0, 0, 0, 0.1);
     transition: width 0.3s;
     position: fixed;
-    top: 85px; /* Navbar balandligi */
+    top: 75px; /* Navbar balandligi */
     left: 0;
     height: calc(100vh - 56px);
     overflow: hidden;
@@ -67,6 +67,10 @@ a {
     padding: 1rem;
     max-height: 100vh;
     overflow-y: auto;
+<<<<<<< Updated upstream
+    padding-top: 45px;
+=======
+>>>>>>> Stashed changes
 }
 
 #sidebar.expanded {
@@ -100,7 +104,8 @@ a {
 
 /* Sidebar toggler button */
 #sidebar-toggler {
-    /* width: 100%; */
+    display: none;
+    width: 100%;
     text-align: left;
     background: none;
     border: none;
@@ -186,7 +191,7 @@ a {
     box-shadow: 4px 0 6px rgba(0, 0, 0, 0.1);
     transition: width 0.3s;
     position: fixed;
-    top: 85px; /* Navbar balandligi */
+    top: 75px; /* Navbar balandligi */
     left: 0;
     height: calc(100vh - 56px);
     overflow: hidden;
@@ -610,8 +615,38 @@ h2::after {
 }
 
 .navbar-brand{
-    height: 82px;
+    height: 57px;
 }
+.language-switcher {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff;
+    margin-right: 10px;
+    background-color: #f8f9fa;
+    border-radius: 20px;
+    padding: 5px 10px;
+    width: 100px;   
+}
+.language-switcher:hover{
+    background-color: #4f4f4f3b;
+}
+
+#languageSwitcher {
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+    border: none;
+    background: transparent;
+    outline: none;
+    cursor: pointer;
+}
+
+#flagIcon {
+    width: 24px;
+    height: 16px;
+}
+
 @media (max-width: 768px) {
     .card {
         flex: 1 1 calc(50% - 30px);
@@ -631,6 +666,7 @@ h2::after {
         padding: 1rem;
     }
     #sidebar-toggler{
+        display: block;
         margin-left: 0;
     }
     .content{

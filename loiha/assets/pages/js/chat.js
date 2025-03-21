@@ -195,3 +195,11 @@ function filterCards() {
         card.style.display = (filter === "all" || card.querySelector("p").textContent === filter) ? "block" : "none";
     });
 }
+
+
+document.getElementById("languageSwitcher").addEventListener("change", function () {
+    const selectedOption = this.options[this.selectedIndex];
+    const flagUrl = selectedOption.getAttribute("data-flag");
+    document.getElementById("flagIcon").src = flagUrl;
+  });
+  
