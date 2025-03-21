@@ -31,6 +31,9 @@ a{
     height: calc(100vh - 56px);
     overflow: hidden;
     z-index: 1000;
+    max-height: 100vh;
+    overflow-y: auto;
+    padding-top: 45px;
 }
 
 #sidebar.expanded {
@@ -411,6 +414,21 @@ a{
 .form-label{
     color: black;
 }
+.input-control{
+    display: flex;
+    justify-content: space-between;
+}
+.modal-content{
+    padding: 20px;
+    margin: auto 50px;
+    width: 800px;
+}
+.modal-dialog{
+    max-width: 850px;
+}
+.mb-3{
+    width: 300px;
+}
 @media (max-width: 800px) {
     #sidebar {
         width: 0;
@@ -434,5 +452,16 @@ a{
     }
     button b {
         display: none;
+    }
+    .input-control{
+        display: block;
+        justify-content: space-between;
+    }
+    .modal-content{
+        margin: 0 auto;
+        width: 320px;
+    }
+    .mb-3{
+        width: auto;
     }
 }

@@ -128,6 +128,27 @@
         <div class="p-3 border-bottom d-flex justify-content-between align-items-center gap-3">
             <div class="d-flex gap-2">
                 <input type="text" class="form-control" id="searchInput" placeholder="Qidirish...">
+                <select class="form-control">
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                    <option value="4">Option 4</option>
+                    <option value="5">Option 5</option>
+                </select>
+                <select class="form-control">
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                    <option value="4">Option 4</option>
+                    <option value="5">Option 5</option>
+                </select>
+                <select class="form-control">
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                    <option value="4">Option 4</option>
+                    <option value="5">Option 5</option>
+                </select>
             </div>
             <div class="d-flex gap-2">
                 <button class="btn btn-primary" id="createBtn">+ <b>Yaratish</b></button>
@@ -142,13 +163,12 @@
                         <input type="checkbox" class="form-check-input" id="selectAll">
                     </th>
                     <th data-sort="id">ID ↕</th>
-                    <th data-sort="name">Ism ↕</th>
-                    <th data-sort="benefit">Lavozim ↕</th>
-                    <th data-sort="damage">Telefon raqam ↕</th>
-                    <th data-sort="income">Summasi ↕</th>
-                    <th data-sort="branch">Filial ↕</th>
-                    <th data-sort="income">Berilgan sana ↕</th>
-                    <th data-sort="income">Topshirish sanasi ↕</th>
+                    <th data-sort="name">Nomi ↕</th>
+                    <th data-sort="benefit">Soni ↕</th>
+                    <th data-sort="income">Narxi ↕</th>
+                    <th data-sort="income">To'lov turi ↕</th>
+                    <th data-sort="income">Sana ↕</th>
+                    <th data-sort="income">Mijoz ↕</th>
                 </tr>
                 </thead>
                 <tbody></tbody>
@@ -162,7 +182,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Yangi vazifa qo'shish</h5>
+                    <h5 class="modal-title">Sotuv uchun</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -170,36 +190,49 @@
 
                         <div>
                     <div class="mb-3">
-                        <label class="form-label">Ism</label>
-                        <input type="text" class="form-control" id="nameInput" placeholder="Viktor">
+                        <label class="form-label">Nomi</label>
+                        <input type="text" class="form-control" id="nameInput" placeholder="ITbrain">
+                    </div>
+                    <div class="mb-3 d-flex">
+                        <div style="flex: 1;">
+                            <label class="form-label">Soni</label>
+                            <input type="number" class="form-control" id="DebtNumber" placeholder="100" style="width: 70%;">
+                        </div>
+                        <div style="flex: 1; margin-left: 10px;">
+                            <label class="form-label">Birlik</label>
+                            <select class="form-control">
+                                <option value="kg">kg</option>
+                                <option value="L">L</option>
+                                <option value="M">M</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Lavozim </label>
-                        <input type="text" class="form-control" id="DebtNumber" placeholder="Sotuvchi">
+                        <label class="form-label">Narxi</label>
+                        <input type="number" class="form-control" id="receiptDay" placeholder="100.000.000">
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label">Telefon raqam</label>
-                        <input type="number" class="form-control" id="receiptDay" placeholder="+998" value="+998">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Summasi</label>
-                        <input type="number" class="form-control" id="returnDay" placeholder="1.000.000">
-                    </div>
-
                         </div>
                         <div>
-                    <div class="mb-3">
-                        <label class="form-label">Berilgan sana</label>
-                        <input type="date" class="form-control" id="receiptDay">
-                    </div>
+                            <div class="mb-3">
+                                <label class="form-label">To'lov turi</label>
+                                <select class="form-control">
+                                    <option value="active">Karta</option>
+                                    <option value="inactive">Naqt</option>
+                                    <option value="pending">Qarz</option>
+                                </select>
+                            </div>
                     <div class="mb-3">
                         <label class="form-label">Topshirish sanasi</label>
                         <input type="date" class="form-control" id="returnDay">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Filial</label>
-                        <input type="text" class="form-control" id="branch" placeholder="Sariosiyo">
+                        <label class="form-label">Mijoz</label>
+                        <select class="form-control">
+                            <option value="active">Oddiy</option>
+                            <option value="inactive">Hamkor</option>
+                        </select>
                     </div>
+
                         </div>
 
                     </div>  

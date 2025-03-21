@@ -28,10 +28,11 @@
         
         <div class="d-flex align-items-center">
             <div class="language-switcher">
-                <img id="flagIcon" src="https://flagcdn.com/w40/uz.png" alt="UZ Flag">
-                <select id="languageSwitcher">
-                    <option value="uz" data-flag="https://flagcdn.com/w40/uz.png">🇺🇿</option>
-                    <option value="ru" data-flag="https://flagcdn.com/w40/ru.png">🇷🇺</option>
+                <img id="flagIcon" src="https://flagcdn.com/w40/ru.png" alt="RU Flag">
+                <span id="selectedLanguage">RU</span> <!-- Added span for displaying selected language -->
+                <select id="languageSwitcher" onchange="updateLanguageText()">
+                    <option value="uz" data-flag="https://flagcdn.com/w40/uz.png">UZ</option>
+                    <option value="ru" data-flag="https://flagcdn.com/w40/ru.png" selected>RU</option>
                 </select>
             </div>
             <a href="../pages/profile.html" class="profile">
@@ -167,7 +168,18 @@
     </div>
 
     <div class="content">
-        <div id="card-container"></div>
+        <div id="card-container" class="row">
+            <!-- Example card -->
+            <div class="card mb-3 col-md-6">
+                <div class="card-body">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSX0VyN1J2YLz6nBdYl-uu05expOKPwJ5BhHHdHzfZAwZh7onXXC3fDa3QgBMwaVCD5VlA&usqp=CAU" alt="Profile Image" class="card-img-top">
+                    <h5 class="card-title mt-3">Card Title</h5>
+                    <p class="card-text">This is a sample card. You can add more cards dynamically.</p>
+                    <button class="btn btn-primary" onclick="editCard()">Edit</button>
+                    <button class="btn btn-danger" onclick="deleteCard()">Delete</button>
+                </div>
+            </div>
+        </div>
 
     <div id="modal" class="modal">
         <div class="modal-content">
@@ -305,7 +317,7 @@
 
 <!-- // CHAT  -->
 
-<!-- <div class="content">
+<div class="content">
     <div id="chatbot-icon" onclick="toggleChat()"><i class="fa-solid fa-comment"></i></div>
 
     <div id="chat-container">
@@ -320,7 +332,7 @@
     </div>
 
     <div id="notification">📩 Ma'lumot yuborildi</div>
-</div> -->
+</div>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"
@@ -334,5 +346,24 @@
         crossorigin="anonymous"></script>
 <script src="./js/chat.js"></script>
 <script src="./js/dark-mode.js"></script>
+<script>
+    function updateLanguageText() {
+        const languageSwitcher = document.getElementById('languageSwitcher');
+        const selectedOption = languageSwitcher.options[languageSwitcher.selectedIndex];
+        const selectedLanguage = selectedOption.text;
+        const flagUrl = selectedOption.getAttribute('data-flag');
+        
+        document.getElementById('selectedLanguage').innerText = selectedLanguage;
+        document.getElementById('flagIcon').src = flagUrl;
+    }
+
+    function editCard() {
+        // Implement edit card functionality
+    }
+
+    function deleteCard() {
+        // Implement delete card functionality
+    }
+</script>
 </body>
 </html>

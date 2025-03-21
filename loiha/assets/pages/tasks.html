@@ -131,7 +131,6 @@
                 <input type="text" class="form-control" id="searchInput" placeholder="Qidirish...">
             </div>
             <div class="d-flex gap-2">
-                <button class="btn btn-primary" id="task"><i class="fa-solid fa-eye"></i> Vazifa</button>
                 <button class="btn btn-primary" id="createBtn">+ <b>Yaratish</b></button>
                 <button class="btn btn-danger delete-btn" id="deleteBtn"><i class="fa-solid fa-trash"></i></button>
             </div>
@@ -151,14 +150,59 @@
                     <th data-sort="branch">Filial ↕</th>
                     <th data-sort="income">Berilgan sana ↕</th>
                     <th data-sort="income">Topshirish sanasi ↕</th>
+                    <th>Vazifa</th> <!-- Added a new column for the Vazifa button -->
                 </tr>
                 </thead>
-                <tbody></tbody>
+                <tbody>
+                    <!-- Example rows with sample data -->
+                    <tr>
+                        <td><input type="checkbox" class="form-check-input"></td>
+                        <td>1</td>
+                        <td>Viktor</td>
+                        <td>Sotuvchi</td>
+                        <td>+998901234567</td>
+                        <td>1,000,000</td>
+                        <td>Sariosiyo</td>
+                        <td>2023-10-01</td>
+                        <td>2023-10-10</td>
+                        <td><button class="btn btn-primary task-btn" data-bs-toggle="modal" data-bs-target="#taskModal">Vazifa</button></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" class="form-check-input"></td>
+                        <td>2</td>
+                        <td>Ali</td>
+                        <td>Manager</td>
+                        <td>+998901234568</td>
+                        <td>2,000,000</td>
+                        <td>Tashkent</td>
+                        <td>2023-10-02</td>
+                        <td>2023-10-12</td>
+                        <td><button class="btn btn-primary task-btn" data-bs-toggle="modal" data-bs-target="#taskModal">Vazifa</button></td>
+                    </tr>
+                </tbody>
             </table>
         </div>
         <div class="p-3 border-top d-flex justify-content-center" id="pagination"></div>
     </div>
 
+    <!-- Task Modal -->
+    <div class="modal fade" id="taskModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Vazifa Tafsilotlari</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Task details will be populated here -->
+                    <p id="taskDetails"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Yopish</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="modal fade" id="createModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
@@ -225,6 +269,17 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="./js/tasks.js"></script>
 <script src="./js/dark-mode.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const taskButtons = document.querySelectorAll('.task-btn');
+        taskButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const taskDetails = 'Here will be the task details'; // Replace with actual task details
+                document.getElementById('taskDetails').innerText = taskDetails;
+            });
+        });
+    });
+</script>
 
 </body>
 </html>

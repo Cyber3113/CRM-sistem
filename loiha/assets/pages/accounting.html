@@ -255,34 +255,44 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="mb-3">
-                        <label class="form-label">Kompaniya nomi</label>
-                        <input type="text" class="form-control" id="nameInput" placeholder="Denov">
+                    <div class="input-control">
+
+                       <div>
+                            <div class="mb-3">
+                            <label class="form-label">Kompaniya nomi</label>
+                            <input type="text" class="form-control" id="nameInput" placeholder="Denov">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Telefon raqam</label>
+                            <input type="text" class="form-control" id="phone" placeholder="+998" value="+998">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Foyda</label>
+                            <input type="number" class="form-control" id="DebtNumber" placeholder="1.000.000">
+                        </div>
+                       </div> 
+
+                       <div>
+                            <div class="mb-3">
+                            <label class="form-label">Zarar</label>
+                            <input type="number" class="form-control" id="receiptDay" placeholder="1.000.000">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Umumiy aylanma</label>
+                            <input type="number" class="form-control" id="returnDay" placeholder="1.000.000">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Status</label>
+                            <select class="form-control" id="statusSelect">
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                                <option value="pending">Pending</option>
+                            </select>
+                        </div>
+                       </div>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label">Telefon raqam</label>
-                        <input type="text" class="form-control" id="phone" placeholder="+998" value="+998">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Foyda</label>
-                        <input type="number" class="form-control" id="DebtNumber" placeholder="1.000.000">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Zarar</label>
-                        <input type="number" class="form-control" id="receiptDay" placeholder="1.000.000">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Umumiy aylanma</label>
-                        <input type="number" class="form-control" id="returnDay" placeholder="1.000.000">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Status</label>
-                        <select class="form-control" id="statusSelect">
-                            <option value="active">Active</option>
-                            <option value="inactive">Inactive</option>
-                            <option value="pending">Pending</option>
-                        </select>
-                    </div>
+                    
+                    
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bekor qilish</button>

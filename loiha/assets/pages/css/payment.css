@@ -56,6 +56,9 @@ a {
     height: calc(100vh - 56px);
     overflow: hidden;
     z-index: 1000;
+    max-height: 100vh;
+    overflow-y: auto;
+    padding-top: 45px;
 }
 
 #sidebar.expanded {
@@ -197,6 +200,9 @@ a {
     height: calc(100vh - 56px);
     overflow: hidden;
     z-index: 1000;
+    max-height: 100vh;
+    overflow-y: auto;
+    padding-top: 45px;
 }
 
 #sidebar.expanded {
@@ -484,6 +490,24 @@ table th{
 #flagIcon {
   width: 24px;
   height: 16px;
+}
+.nav-item a{
+  width: 200px;
+  height: 45px;
+}
+
+.nav-item a{
+  width: 200px;
+  height: 45px;
+}
+.dark-mode .language-switcher{
+  background-color: #555;
+}
+.dark-mode #languageSwitcher{
+  color: white;
+}
+.dark-mode #languageSwitcher option{
+  background-color: #555;
 }
 .nav-item a{
   width: 200px;

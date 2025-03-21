@@ -127,6 +127,8 @@
 <div class="content">
 
     <h1 style="margin-top: 150px;">Qarzdorlar ro'yxati</h1>
+
+
     <div class="table-wrapper">
         <div class="p-3 border-bottom d-flex justify-content-between align-items-center gap-3">
             <div class="d-flex gap-2">
@@ -169,34 +171,44 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="mb-3">
-                        <label class="form-label">Ism</label>
-                        <input type="text" class="form-control" id="nameInput" placeholder="Viktor">
+                    <div class="input-control">
+
+                        <div>
+                                <div class="mb-3">
+                            <label class="form-label">Ism</label>
+                            <input type="text" class="form-control" id="nameInput" placeholder="Viktor">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Telefon raqam</label>
+                            <input type="text" class="form-control" id="DebtNumber" placeholder="+998" value="+998">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Qarz summasi</label>
+                            <input type="number" class="form-control" id="DebtNumber" placeholder="1.000.000">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Berilgan summa</label>
+                            <input type="number" class="form-control" id="DebtNumber" placeholder="1.000.000">
+                        </div>
+                        </div>
+
+                        <div>
+                                <div class="mb-3">
+                            <label class="form-label">Qolgan summa</label>
+                            <input type="number" class="form-control" id="DebtNumber" placeholder="1.000.000">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Olgan sana</label>
+                            <input type="date" class="form-control" id="receiptDay">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Qaytarish sanasi</label>
+                            <input type="date" class="form-control" id="returnDay">
+                        </div>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label">Telefon raqam</label>
-                        <input type="text" class="form-control" id="DebtNumber" placeholder="+998" value="+998">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Qarz summasi</label>
-                        <input type="number" class="form-control" id="DebtNumber" placeholder="1.000.000">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Berilgan summa</label>
-                        <input type="number" class="form-control" id="DebtNumber" placeholder="1.000.000">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Qolgan summa</label>
-                        <input type="number" class="form-control" id="DebtNumber" placeholder="1.000.000">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Olgan sana</label>
-                        <input type="date" class="form-control" id="receiptDay">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Qaytarish sanasi</label>
-                        <input type="date" class="form-control" id="returnDay">
-                    </div>
+                    
+                    
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bekor qilish</button>

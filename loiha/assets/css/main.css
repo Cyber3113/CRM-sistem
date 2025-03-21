@@ -67,10 +67,7 @@ a {
     padding: 1rem;
     max-height: 100vh;
     overflow-y: auto;
-<<<<<<< Updated upstream
     padding-top: 45px;
-=======
->>>>>>> Stashed changes
 }
 
 #sidebar.expanded {
@@ -198,6 +195,8 @@ a {
     z-index: 1000;
     max-height: 100vh;
     overflow-y: auto;
+    padding-top: 45px;
+
 }
 #sidebar:hover{
     width: 250px;
@@ -282,32 +281,6 @@ a {
 }
 .card h6{
     color: var(--text-color);
-}
-
-/* Iconlar - Kattalashtirilgan */
-.icon-green, .icon-purple, .icon-gray {
-    font-size: 50px; /* Ikonalarni kattalashtirish */
-    padding: 15px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 3D ikonalar */
-}
-
-.icon-green {
-    color: #5df63b;
-    border: 3px solid #5df63b;
-}
-
-.icon-purple {
-    color: #6A5ACD;
-    border: 3px solid #6A5ACD;
-}
-
-.icon-gray {
-    color: #A9A9A9;
-    /* border: 3px solid #A9A9A9; */
 }
 
 /* Dark Mode */
@@ -646,7 +619,15 @@ h2::after {
     width: 24px;
     height: 16px;
 }
-
+.dark-mode .language-switcher{
+    background-color: #555;
+}
+.dark-mode #languageSwitcher{
+    color: white;
+}
+.dark-mode #languageSwitcher option{
+    background-color: #555;
+}
 @media (max-width: 768px) {
     .card {
         flex: 1 1 calc(50% - 30px);

@@ -75,7 +75,7 @@
     right: 10px;
 }
 
-.chat-body .message .message-options {
+chat-body .message .message-options {
     position: absolute;
     top: -18px;
     right: 0;
@@ -96,7 +96,6 @@
 .chat-footer button {
     padding: 8px 20px;
 }
-
 
 #chatbot-icon {
     position: fixed;
@@ -236,10 +235,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    /* width: 80%; */
-    /* max-width: 1000px; */
     margin-top: 20px;
-    /* justify-content: center; */
 }
 
 .card {
@@ -249,8 +245,30 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
     position: relative;
-    width: 325px;
-    margin-left: 15px;
+    width: 45%;
+    margin: 10px;
+}
+
+.card img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin: 0 auto;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 14px;
+    color: #555;
+}
+
+.card .btn {
+    margin: 5px;
 }
 
 h1 {
