@@ -24,8 +24,6 @@
         </button>
         
         <div class="d-flex align-items-center">
-            <a href="./assets/pages/profile.html" class="nav-link me-3"><i class="fas fa-user"
-                   style="padding: 8px 12px;"></i></a>
             <button class="btn btn-light border-0" id="darkModeToggle">
                 <i class="fas fa-moon" id="darkModeIcon"></i>
             </button>
@@ -40,14 +38,14 @@
         <img src="../images/milliycrm-logo-w.png" alt="logo" width="100px" class="logo-w">
     </a>
     <ul class="nav flex-column flex-grow-1">
-        <li class="nav-item mb-3" data-bs-toggle="tooltip" data-bs-placement="right" title="Dashboard">
+        <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Dashboard">
             <a href="../../index.html" class="nav-link">
                 <i class="fa-solid fa-chart-simple"></i> <span style="margin-left: 10px;"> Dashboard</span>
             </a>
         </li>
-        <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Bugalteriya">
+        <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Buxgalteriya">
             <a href="../pages/accounting.html" class="nav-link">
-                <i class="fa-solid fa-calculator"></i> <span style="margin-left: 10px;"> Bugalteriya</span>
+                <i class="fa-solid fa-calculator"></i> <span style="margin-left: 10px;"> Buxgalteriya</span>
             </a>
         </li>
         <li class="nav-item">
@@ -87,12 +85,24 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="../pages/chat.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="end"
-               title="Aloqa">
-                <i class="fa-brands fa-rocketchat"></i><span style="margin-left: 10px;"> Aloqa</span>
+            <a href="../pages/sale.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="end"
+               title="Sotuv">
+               <i class="fa-solid fa-tag"></i><span style="margin-left: 10px;">Sotuv</span>
             </a>
         </li>
-        <li class="nav-item mt-auto">
+        <li class="nav-item">
+            <a href="../pages/popular.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="end"
+               title="Ommabop">
+               <i class="fa-solid fa-user-check"></i><span style="margin-left: 10px;">Ommabop</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="../pages/chat.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="end"
+               title="Aloqa">
+               <i class="fa-solid fa-phone-volume"></i><span style="margin-left: 10px;"> Aloqa</span>
+            </a>
+        </li>
+        <li class="nav-item">
             <a href="/loiha/login.html" class="nav-link text-danger" data-target="#exitModal" data-bs-toggle="tooltip"
                title="Hisobdan chiqish">
                 <i class="fa-solid fa-right-from-bracket"></i> <span style="margin-left: 10px;"> Chiqish</span>
@@ -101,68 +111,49 @@
     </ul>
 </div>
 
-<!-- Main Content -->
 <div class="content">
-    <h1 style="text-align: center; margin-top: -50px;">Mening Xisobim</h1>
-
-    <div class="container mt-4">
-        <div class="row">
-            <!-- Chap taraf - Foydalanuvchi ma'lumotlarini kiritish -->
-            <div class="col-md-8">
-                <div class="card p-4 shadow">
-                    <h5 class="mb-3">General Information</h5>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label class="form-label">First Name</label>
-                            <input type="text" class="form-control" id="firstName" value="John" disabled>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label">Last Name</label>
-                            <input type="text" class="form-control" id="lastName" value="Doe" disabled>
-                        </div>
-                    </div>
-
-                    <div class="row mt-3">
-                        <div class="col-md-6">
-                            <label class="form-label">Birthday</label>
-                            <input type="date" class="form-control" id="birthday" value="1995-06-15" disabled>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label">Job</label>
-                            <input type="text" class="form-control" id="job" value="Software Engineer" disabled>
-                        </div>
-                    </div>
-
-                    <div class="row mt-3">
-                        <div class="col-md-6">
-                            <label class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" value="johndoe@example.com" disabled>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label">Phone</label>
-                            <input type="text" class="form-control" id="phone" value="+998 90 123 45 67" disabled>
-                        </div>
-                    </div>
-
-                    <h5 class="mt-1">Busines</h5>
-
+    <div class="profile-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSX0VyN1J2YLz6nBdYl-uu05expOKPwJ5BhHHdHzfZAwZh7onXXC3fDa3QgBMwaVCD5VlA&usqp=CAU" alt="Profile Picture" class="avatar">
+        <h2>Dasturchi Qiz</h2>
+        <p>Email: user@example.com</p>
+        <p>Telefon: +998901234567</p>
+        <p>Tug‘ilgan sana: 2000-01-01</p>
+        <p>Kasb: Dasturchi</p>
+        <button class="btn btn-primary" id="createBtn" onclick="openprofileModal()">Tahrirlash</button>
+    </div>
+    
+    <div class="modal" tabindex="-1" id="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Profil Sozlamalari</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeprofileModal()" ></button>
                 </div>
-            </div>
-
-            <!-- O'ng taraf - Profil rasmi va tugmalar -->
-            <div class="col-md-4">
-                <div class="card text-center p-4 shadow">
-                    <div class="profile-header">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuMjzZipc9GpEPojfW2K0ZgZNhiRWjbpG6SA&s"
-                             class="profile-img mb-3" alt="Profil rasmi">
-                        <h4 id="displayName">John Doe</h4>
-                        <p class="text-muted" id="displayEmail">johndoe@example.com</p>
-                        <p class="text-muted" id="displayJob">Software Engineer</p>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">Ism</label>
+                        <input type="text" class="form-control" id="nameInput" placeholder="Amriddin">
                     </div>
-                    <div class="d-flex justify-content-between mt-3">
-                        <button class="btn btn-secondary" id="editBtn">Tahrirlash</button>
-                        <button class="btn btn-primary" id="saveBtn" disabled>Saqlash</button>
+                    <div class="mb-3">
+                        <label class="form-label">Familiya</label>
+                        <input type="text" class="form-control" id="DebtNumber" placeholder="Hkolmatov">
                     </div>
+                    <div class="mb-3">
+                        <label class="form-label">Telefon raqam</label>
+                        <input type="number" class="form-control" id="phone" placeholder="+998" value="+998">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Lavozim</label>
+                        <input type="text" class="form-control" id="receiptDay" placeholder="Admin">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Gmail</label>
+                        <input type="gmail" class="form-control" id="returnDay" placeholder="crm@gmail.com">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="closeprofileModal()">Bekor qilish</button>
+                    <button type="button" class="btn btn-primary">Saqlash</button>
                 </div>
             </div>
         </div>

@@ -25,7 +25,7 @@
     box-shadow: 4px 0 6px rgba(0, 0, 0, 0.1);
     transition: width 0.3s;
     position: fixed;
-    top: 0; /* Navbar balandligi */
+    top: 85px; /* Navbar balandligi */
     left: 0;
     height: calc(100vh - 56px);
     overflow: hidden;
@@ -63,7 +63,7 @@
     text-align: left;
     background: none;
     border: none;
-    margin-left: 80px;
+    margin-left: 10px;
     margin-top: 10px;
     color: black;
     /* padding: 11px; */
@@ -104,7 +104,7 @@
 
   /* Content */
   .content {
-    margin-top: 60px; /* Navbar ostida joylashish */
+    margin-top: 120px; /* Navbar ostida joylashish */
     padding: 20px;
   }
 
@@ -124,7 +124,7 @@
     box-shadow: 4px 0 6px rgba(0, 0, 0, 0.1);
     transition: width 0.3s;
     position: fixed;
-    top: 0; /* Navbar balandligi */
+    top: 85px; /* Navbar balandligi */
     left: 0;
     height: calc(100vh - 56px);
     overflow: hidden;
@@ -146,8 +146,11 @@
   
   /* Content sidebar ostiga tushib ketmasligi uchun */
   .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-left: 80px; /* Sidebar doimiy kengligi */
-    margin-top: 60px; /* Navbar ostida joylashish */
+    margin-top: 120px; /* Navbar ostida joylashish */
     padding: 20px;
     transition: margin-left 0.3s;
   }
@@ -402,10 +405,32 @@
   justify-content: center;
   align-items: center;
 }
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  width: 380px !important;
+}
 .modal-content{
   padding: 20px;
   margin: auto 50px;
   width: 400px;
+}
+.profile-card {
+  width: 400px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  color: black;
+}
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
 }
 @media (max-width: 800px) {
   #sidebar {

@@ -23,8 +23,11 @@
         </button>
         
         <div class="d-flex align-items-center">
-            <a href="./assets/pages/profile.html" class="nav-link me-3"><i class="fas fa-user"
-                   style="padding: 8px 12px;"></i></a>
+            <a href="./assets/pages/profile.html" class="profile">
+                <i class="fas fa-user"></i>
+                <span class="name">Kholmatov</span>
+                <span class="last-name"> Amriddin</span>
+              </a>
             <button class="btn btn-light border-0" id="darkModeToggle">
                 <i class="fas fa-moon" id="darkModeIcon"></i>
             </button>
@@ -39,15 +42,15 @@
         <img src="./assets/images/milliycrm-logo-w.png" alt="logo" width="100px" class="logo-w">
     </a>
     <ul class="nav flex-column flex-grow-1">
-        <li class="nav-item mb-3" data-bs-toggle="tooltip" data-bs-placement="right"
+        <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="right"
             title="Dashboard">
             <a href="../loiha/index.html" class="nav-link">
                 <i class="fa-solid fa-chart-simple"></i> <span style="margin-left: 10px;"> Dashboard</span>
             </a>
         </li>
-        <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Bugalteriya">
+        <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Buxgalteriya">
             <a href="./assets/pages/accounting.html" class="nav-link">
-                <i class="fa-solid fa-calculator"></i> <span style="margin-left: 10px;"> Bugalteriya</span>
+                <i class="fa-solid fa-calculator"></i> <span style="margin-left: 10px;"> Buxgalteriya</span>
             </a>
         </li>
         <li class="nav-item">
@@ -84,16 +87,27 @@
             <a href="./assets/pages/payment.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="end"
                title="To'lovlar">
                 <i class="fa-solid fa-wallet"></i><span style="margin-left: 10px;"> To'lovlar</span>
-
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="./assets/pages/sale.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="end"
+               title="Sotuv">
+               <i class="fa-solid fa-tag"></i><span style="margin-left: 10px;">Sotuv</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="./assets/pages/popular.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="end"
+               title="Ommabop">
+               <i class="fa-solid fa-user-check"></i><span style="margin-left: 10px;">Ommabop</span>
             </a>
         </li>
         <li class="nav-item">
             <a href="./assets/pages/chat.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="end"
                title="Aloqa">
-                <i class="fa-brands fa-rocketchat"></i><span style="margin-left: 10px;"> Aloqa</span>
+               <i class="fa-solid fa-phone-volume"></i><span style="margin-left: 10px;"> Aloqa</span>
             </a>
         </li>
-        <li class="nav-item mt-auto">
+        <li class="nav-item">
             <a href="login.html" class="nav-link text-danger" data-target="#exitModal" data-bs-toggle="tooltip"
                title="Hisobdan chiqish">
                 <i class="fa-solid fa-right-from-bracket"></i> <span style="margin-left: 10px;"> Chiqish</span>
@@ -102,16 +116,25 @@
     </ul>
 </div>
 
-
 <!-- Main Content -->
 <div class="content">
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+    <!-- <h1>Umumiy ma'lumotlar</h1> -->
     <h1>Umumiy ma'lumotlar</h1>
+=======
+    <h1 style="margin-top: 50px;">Umumiy ma'lumotlar</h1>
+>>>>>>> Stashed changes
+=======
+
+    <h1 style="margin-top: 150px;">Umumiy ma'lumotlar</h1>
+>>>>>>> Stashed changes
     <div class="contayner mt-4">
 
         <div class="row">
             <!-- 0-row, 1-card -->
             <a class="col-md-4" href="./assets/pages/debts.html">
-                <div class="card p-3 shadow-sm">
+                <div class="card p-3 shadow-card">
                     <div class="card-body d-flex align-items-center">
                         <i class="fa-solid fa-money-bill-transfer icons"></i>
                         <div class="ms-3">
@@ -124,7 +147,7 @@
 
             <!-- 0-row, 2-card -->
             <a class="col-md-4" href="./assets/pages/debts.html">
-                <div class="card p-3 shadow-sm">
+                <div class="card p-3 shadow-card">
                     <div class="card-body d-flex align-items-center">
                         <i class="fa-solid fa-users-between-lines icons"></i>
                         <div class="ms-3">
@@ -137,7 +160,7 @@
 
             <!-- 0-row, 3-card -->
             <a class="col-md-4" href="./assets/pages/accounting.html">
-                <div class="card p-3 shadow-sm">
+                <div class="card p-3 shadow-card">
                     <div class="card-body d-flex align-items-center">
                         <i class="fa-solid fa-chart-line icons"></i>
                         <div class="ms-3">
@@ -153,7 +176,7 @@
         <div class="row mt-3">
             <!-- 1-row, 1-card -->
             <div class="col-md-4">
-                <div class="card p-3 shadow-sm">
+                <div class="card p-3 shadow-card">
                     <div class="card-body d-flex align-items-center">
                         <i class="fa-solid fa-dollar-sign icons"></i>
                         <div class="ms-3">
@@ -166,9 +189,9 @@
 
             <!-- 1-row, 2-card -->
             <div class="col-md-4">
-                <div class="card p-3 shadow-sm">
+                <div class="card p-3 shadow-card">
                     <div class="card-body d-flex align-items-center">
-                        <i class="fa-solid fa-triangle-exclamation icons"></i>
+                        <i class="fa-solid fa-triangle-exclamation icons" style="color: var(--buttons-color);"></i>
                         <div class="ms-3">
                             <h6>Zarar</h6>
                             <h4>961</h4>
@@ -179,7 +202,7 @@
 
             <!-- 1-row, 3-card -->
             <div class="col-md-4">
-                <div class="card p-3 shadow-sm">
+                <div class="card p-3 shadow-card">
                     <div class="card-body d-flex align-items-center">
                         <i class="fa-solid fa-wallet icons"></i>
                         <div class="ms-3">
@@ -195,7 +218,7 @@
         <div class="row mt-3">
             <!-- 2-row, 1-card -->
             <div class="col-md-4">
-                <div class="card p-3 shadow-sm">
+                <div class="card p-3 shadow-card">
                     <div class="card-body d-flex align-items-center">
                         <i class="fa-solid fa-handshake icons"></i>
                         <div class="ms-3">
@@ -208,7 +231,7 @@
 
             <!-- 2-row, 2-card -->
             <div class="col-md-4">
-                <div class="card p-3 shadow-sm">
+                <div class="card p-3 shadow-card">
                     <div class="card-body d-flex align-items-center">
                         <i class="fa-solid fa-shop icons"></i>
                         <div class="ms-3">
@@ -221,7 +244,7 @@
 
             <!-- 2-row, 3-card -->
             <div class="col-md-4">
-                <div class="card p-3 shadow-sm">
+                <div class="card p-3 shadow-card">
                     <div class="card-body d-flex align-items-center">
                         <i class="fa-solid fa-users icons"></i>
                         <div class="ms-3">
@@ -236,6 +259,7 @@
         </div>
 
     </div>
+
 
     <div class="contayner mt-4">
         <div class="row">
@@ -266,7 +290,7 @@
     <div class="contayner mt-4">
         <div class="row">
             <!-- 1-col: Line Chart -->
-            <div class="col-md-8">
+            <div class="col-md-8 ">
                 <div class="card p-4 shadow-sm">
                     <h5>Line Chart</h5>
                     <div class="chart-container">

@@ -25,7 +25,7 @@ a{
     box-shadow: 4px 0 6px rgba(0, 0, 0, 0.1);
     transition: width 0.3s;
     position: fixed;
-    top: 0;
+    top: 85;
     left: 0;
     height: calc(100vh - 56px);
     overflow: hidden;
@@ -63,7 +63,7 @@ a{
     text-align: left;
     background: none;
     border: none;
-    margin-left: 80px;
+    margin-left: 10px;
     margin-top: 10px;
     color: black;
     /* padding: 11px; */
