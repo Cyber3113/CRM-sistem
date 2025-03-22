@@ -628,6 +628,9 @@ h2::after {
 .dark-mode #languageSwitcher option{
     background-color: #555;
 }
+.navbar-logos{
+    display: none;
+}
 @media (max-width: 768px) {
     .card {
         flex: 1 1 calc(50% - 30px);
@@ -645,10 +648,12 @@ h2::after {
     }
     #sidebar.expanded{
         padding: 1rem;
+        top: 86px;
     }
     #sidebar-toggler{
         display: block;
         margin-left: 0;
+        width: 30px;
     }
     .content{
         margin-left: 10px;
@@ -684,5 +689,11 @@ h2::after {
     }
      .chart-container, .row {
         display: none;
+    }
+    .navbar-brand{
+        display: none;
+    }
+    .navbar-logos{
+        display: block;
     }
 }

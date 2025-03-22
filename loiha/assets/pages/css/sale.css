@@ -518,6 +518,9 @@ a{
 .mb-3{
     width: 300px;
 }
+.form-select{
+    cursor: pointer;
+}
 @media (max-width: 800px) {
     #sidebar {
         width: 0;

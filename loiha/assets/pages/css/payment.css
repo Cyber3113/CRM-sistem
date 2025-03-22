@@ -515,7 +515,10 @@ table th{
 }
 
 .navbar-brand{
-  height: 82px;
+  height: 57px;
+}
+.navbar-logos{
+  display: none;
 }
 @media (max-width: 800px) {
   #sidebar {
@@ -538,6 +541,12 @@ table th{
       margin: 0 auto;
       width: 320px;
   }
+  .navbar-brand{
+    display: none;
+}
+.navbar-logos{
+    display: block;
+}
 }
 /* Media Query: Mobil uchun moslashish */
 @media (max-width: 576px) {

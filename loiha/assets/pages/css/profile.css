@@ -127,7 +127,7 @@
     box-shadow: 4px 0 6px rgba(0, 0, 0, 0.1);
     transition: width 0.3s;
     position: fixed;
-    top: 85px; /* Navbar balandligi */
+    top: 75px; /* Navbar balandligi */
     left: 0;
     height: calc(100vh - 56px);
     overflow: hidden;
@@ -468,10 +468,6 @@
 }
   #sidebar.expanded ~ .content {
     margin-left: 0; /* Sidebar ochilganda content siljimasin */
-  }
-  .modal-content{
-      margin: 0 auto;
-      width: 320px;
   }
 
 .buttons {

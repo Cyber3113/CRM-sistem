@@ -358,9 +358,6 @@ select {
     display: flex;
     gap: 10px;
 }
-#sidebar.expanded ~ .content {
-    margin-left: 315px; /* Sidebar ochilganda content siljimasin */
-}
 .card-delete {
     position: absolute;
     top: 17px;

@@ -507,7 +507,7 @@ a{
 .modal-content{
     padding: 20px;
     margin: auto 50px;
-    width: 400px;
+    width: 800px;
 }
 #createBtn:active{
     background-color: var(--main-color);
@@ -517,6 +517,9 @@ a{
 }
 .mb-3{
     width: 300px;
+}
+.form-select{
+    cursor: pointer;
 }
 @media (max-width: 800px) {
     #sidebar {
