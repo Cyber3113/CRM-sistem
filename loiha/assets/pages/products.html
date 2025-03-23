@@ -209,7 +209,7 @@
     <script>
         async function fetchProducts() {
             try {
-                const response = await fetch("http://127.0.0.1:8000/api/product/");
+                const response = await fetch("http://173.249.29.89:8002/api/product/");
                 if (!response.ok) throw new Error("API dan ma'lumot olishda xatolik");
     
                 const data = await response.json();
