@@ -599,12 +599,18 @@ h2::after {
     background-color: #f8f9fa;
     border-radius: 20px;
     padding: 5px 10px;
-    width: 100px;   
+    width: 150px;   
 }
 .language-switcher:hover{
     background-color: #4f4f4f3b;
 }
+.none-bar{
+    display: none !important;
+}
 
+.none-path:hover .none-bar{
+    display: block !important;
+}
 #languageSwitcher {
     width: 100%;
     padding: 5px;
@@ -695,5 +701,11 @@ h2::after {
     }
     .navbar-logos{
         display: block;
+    }
+    .profile span{
+        display: none;
+    }
+    .modal-content{
+        width: 320px;
     }
 }

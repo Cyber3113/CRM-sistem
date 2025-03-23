@@ -72,10 +72,6 @@ a {
     transition: 0.3s;
 }
 
-#sidebar.expanded .nav-link {
-    margin-bottom: 10px; /* Ensure spacing remains consistent in expanded state */
-}
-
 #sidebar .nav-link:hover {
     background-color: var(--main-color);
     color: white;
@@ -471,7 +467,7 @@ table th{
   background-color: #f8f9fa;
   border-radius: 20px;
   padding: 5px 10px;
-  width: 100px;   
+  width: 145px;   
 }
 .language-switcher:hover{
   background-color: #4f4f4f3b;

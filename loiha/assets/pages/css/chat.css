@@ -247,6 +247,7 @@ chat-body .message .message-options {
     position: relative;
     width: 45%;
     margin: 10px;
+    max-width: 300px;
 }
 
 .card img {
@@ -354,7 +355,7 @@ select {
     position: absolute;
     top: 101px;
     /* bottom: 20px; */
-    right: 80px;
+    right: 93px;
     display: flex;
     gap: 10px;
 }
@@ -451,7 +452,7 @@ p{
 }
 .card img {
     border-radius: 50%;
-    margin-left: 90px;
+    margin-left: auto;
 }
 .footer {
     background: #1c136806; /* Och kulrang fon */
@@ -506,7 +507,7 @@ p{
     background-color: #f8f9fa;
     border-radius: 20px;
     padding: 5px 10px;
-    width: 100px;   
+    width: 120px;   
 }
 .language-switcher:hover{
     background-color: #4f4f4f3b;
