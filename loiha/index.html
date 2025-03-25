@@ -60,11 +60,12 @@
                 <i class="fa-solid fa-chart-simple"></i> <span style="margin-left: 10px;"> Dashboard</span>
             </a>
         </li>
-        <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Buxgalteriya">
-            <a href="./assets/pages/accounting.html" class="nav-link">
+        <li class="nav-item accordion-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Buxgalteriya">
+            <a href="#" class="nav-link accordion-toggle" data-bs-toggle="collapse" data-bs-target="#accounting-submenu">
                 <i class="fa-solid fa-calculator"></i> <span style="margin-left: 10px;"> Buxgalteriya</span>
+                <i class="fa-solid fa-chevron-down ms-auto"></i>
             </a>
-            <ul class="nav flex-column ms-3 d-none" id="accounting-submenu">
+            <ul class="nav flex-column ms-3 collapse" id="accounting-submenu">
                 <li class="nav-item">
                     <a href="./assets/pages/invoices.html" class="nav-link">
                         <i class="fa-solid fa-file-invoice"></i> <span style="margin-left: 10px;"> Invoices</span>
@@ -94,11 +95,28 @@
                 <i class="fa-solid fa-list-check"></i> <span style="margin-left: 10px;"> Vazifalar</span>
             </a>
         </li>
-        <li class="nav-item">
-            <a href="./assets/pages/products.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="end"
-               title="Mahsulotlar">
-                <i class="fa-solid fa-shop"></i><span style="margin-left: 10px;"> Mahsulotlar</span>
+        <li class="nav-item accordion-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Mahsulotlar">
+            <a href="#" class="nav-link accordion-toggle" data-bs-toggle="collapse" data-bs-target="#products-submenu">
+                <i class="fa-solid fa-shop"></i> <span style="margin-left: 10px;"> Mahsulotlar</span>
+                <i class="fa-solid fa-chevron-down ms-auto"></i>
             </a>
+            <ul class="nav flex-column ms-3 collapse" id="products-submenu">
+                <li class="nav-item">
+                    <a href="./assets/pages/product1.html" class="nav-link">
+                        <i class="fa-solid fa-box"></i> <span style="margin-left: 10px;"> Product 1</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="./assets/pages/product2.html" class="nav-link">
+                        <i class="fa-solid fa-box"></i> <span style="margin-left: 10px;"> Product 2</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="./assets/pages/product3.html" class="nav-link">
+                        <i class="fa-solid fa-box"></i> <span style="margin-left: 10px;"> Product 3</span>
+                    </a>
+                </li>
+            </ul>
         </li>
         <li class="nav-item">
             <a href="./assets/pages/customers.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="end"
@@ -118,11 +136,28 @@
                 <i class="fa-solid fa-wallet"></i><span style="margin-left: 10px;"> To'lovlar</span>
             </a>
         </li>
-        <li class="nav-item">
-            <a href="./assets/pages/sale.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="end"
-               title="Sotuv">
-               <i class="fa-solid fa-tag"></i><span style="margin-left: 10px;">Sotuv</span>
+        <li class="nav-item accordion-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Sotuv">
+            <a href="#" class="nav-link accordion-toggle" data-bs-toggle="collapse" data-bs-target="#sale-submenu">
+                <i class="fa-solid fa-tag"></i> <span style="margin-left: 10px;"> Sotuv</span>
+                <i class="fa-solid fa-chevron-down ms-auto"></i>
             </a>
+            <ul class="nav flex-column ms-3 collapse" id="sale-submenu">
+                <li class="nav-item">
+                    <a href="./assets/pages/sale1.html" class="nav-link">
+                        <i class="fa-solid fa-receipt"></i> <span style="margin-left: 10px;"> Sale 1</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="./assets/pages/sale2.html" class="nav-link">
+                        <i class="fa-solid fa-receipt"></i> <span style="margin-left: 10px;"> Sale 2</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="./assets/pages/sale3.html" class="nav-link">
+                        <i class="fa-solid fa-receipt"></i> <span style="margin-left: 10px;"> Sale 3</span>
+                    </a>
+                </li>
+            </ul>
         </li>
         <li class="nav-item">
             <a href="./assets/pages/popular.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="end"
@@ -386,6 +421,7 @@
         integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
         crossorigin="anonymous"></script>
 <script src="./assets/js/app.js"></script>
+<script src="./assets/js/script.js"></script>
 <script>
     document.querySelector('.nav-item[title="Buxgalteriya"]').addEventListener('mouseenter', function() {
         document.getElementById('accounting-submenu').classList.remove('d-none');

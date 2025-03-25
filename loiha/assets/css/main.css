@@ -709,3 +709,39 @@ h2::after {
         width: 320px;
     }
 }
+
+/* Accordion */
+.accordion-item .accordion-toggle::after {
+    content: '\f078'; /* FontAwesome chevron down icon */
+    font-family: 'FontAwesome';
+    float: right;
+    transition: transform 0.2s;
+}
+
+#sidebar:not(.expanded) .accordion-item .accordion-toggle::after {
+    display: none;
+}
+
+.accordion-item .collapse.show .accordion-toggle::after {
+    transform: rotate(-180deg);
+}
+
+.accordion-item .accordion-toggle .fa-chevron-down {
+    transition: transform 0.2s;
+}
+
+.accordion-item .collapse.show .accordion-toggle .fa-chevron-down {
+    transform: rotate(-180deg);
+}
+
+.accordion-item:hover .collapse {
+    display: block !important;
+    max-height: 500px; /* Adjust as needed */
+    transition: max-height 0.3s ease-in-out;
+}
+
+.collapse {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+}
