@@ -482,7 +482,9 @@ a{
 .modal {
     pointer-events: none;
 }
-
+select{
+    cursor: pointer;
+}
 .modal-footer{
     justify-content: space-between;
 }

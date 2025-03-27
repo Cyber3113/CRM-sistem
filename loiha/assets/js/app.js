@@ -60,12 +60,12 @@ document.addEventListener("DOMContentLoaded", function () {
             {
               label: 'Foyda',
               data: [3.5, 2.8, 8.5, 6.3, 3.4, 9.2, 4.1, 5.6, 7.3, 9.1, 6.7, 7.8],
-              backgroundColor: 'red'
+              backgroundColor: '#4fc2b1'
             },
             {
               label: 'Daromad',
               data: [4.2, 3.1, 7.6, 5.9, 4.2, 6.8, 2.9, 6.2, 8.1, 7.5, 5.4, 4.3],
-              backgroundColor: 'orange'
+              backgroundColor: 'black'
             }
           ]
         }
@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
           labels: ['Facebook', 'Twitter', 'YouTube', 'Google+'],
           datasets: [{
             data: [25, 15, 30, 30],
-            backgroundColor: ['#3b5998', '#00acee', '#c4302b', '#d9534f']
+            backgroundColor: ['#3b5998', '#00acee', '#2f5c557d', '#ffbd4d'],
           }]
         }
       });
@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
             label: 'Phone',
             data: [0, 50, 30, 60, 150, 80, 10],
             borderColor: '#00c0ef',
-            backgroundColor: 'rgba(0, 192, 239, 0.1)',
+            backgroundColor: '#fdb23200',
             fill: true,
             tension: 0.4,
             pointRadius: 5,
@@ -108,18 +108,18 @@ document.addEventListener("DOMContentLoaded", function () {
           {
             label: 'Windows',
             data: [0, 40, 20, 50, 40, 70, 10],
-            borderColor: '#5df63b',
-            backgroundColor: 'rgba(76, 175, 80, 0.1)',
+            borderColor: '#fdb232',
+            backgroundColor: '#fdb23200',
             fill: true,
             tension: 0.4,
             pointRadius: 5,
-            pointBackgroundColor: '#5df63b'
+            pointBackgroundColor: '#fdb232'
           },
           {
             label: 'Mac',
             data: [0, 70, 50, 40, 120, 90, 20],
             borderColor: '#D32F2F',
-            backgroundColor: 'rgba(211, 47, 47, 0.1)',
+            backgroundColor: '#fdb23200',
             fill: true,
             tension: 0.4,
             pointRadius: 5,
@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded", function () {
         labels: ['Facebook', 'Twitter', 'YouTube', 'Google+'],
         datasets: [{
           data: [30, 20, 35, 15],
-          backgroundColor: ['#3b5998', '#00acee', '#c4302b', '#d9534f']
+          backgroundColor: ['#3b5998', '#00acee', '#4fc2b1', '#165f54']
         }]
       },
       options: {
@@ -171,17 +171,17 @@ document.addEventListener("DOMContentLoaded", function () {
           {
             label: 'Red',
             data: [12, 12, 12, 12, 12, 12, 12],
-            backgroundColor: '#FF0000'
+            backgroundColor: '#3b5998'
           },
           {
             label: 'Green',
             data: [12, 12, 12, 12, 12, 12, 12],
-            backgroundColor: '#5df63b'
+            backgroundColor: '#3b599896'
           },
           {
             label: 'Blue',
             data: [12, 12, 12, 12, 12, 12, 12],
-            backgroundColor: '#1976D2'
+            backgroundColor: '#165f5459'
           }
         ]
       },
@@ -216,7 +216,7 @@ document.addEventListener("DOMContentLoaded", function () {
         labels: ['Category A', 'Category B', 'Category C', 'Category D'],
         datasets: [{
           data: [30, 25, 20, 25],
-          backgroundColor: ['#FF5733', '#C70039', '#900C3F', '#581845']
+          backgroundColor: ['#278783', '#7fdcce', '#ff5733bf', '#ff5c39']
         }]
       },
       options: {

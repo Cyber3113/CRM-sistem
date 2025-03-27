@@ -13,6 +13,12 @@
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
 </head>
 <body>
+    <style>
+        .modal {
+            display: none;
+            pointer-events: none;
+        }
+    </style>
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg">
@@ -131,28 +137,31 @@
 
     <div class="table-wrapper">
         <div class="p-3 border-bottom d-flex justify-content-between align-items-center gap-3">
-            <div class="d-flex gap-2">
-                <input type="text" class="form-select" id="searchInput" placeholder="Qidirish...">
-                <select class="form-control">
-                    <option value="1">Option 1</option>
-                    <option value="2">Option 2</option>
-                    <option value="3">Option 3</option>
-                    <option value="4">Option 4</option>
-                    <option value="5">Option 5</option>
+            <div class="d-flex gap-2" style="width: 50%;">
+                <input type="text" class="form-control" id="searchInput" placeholder="Qidirish..." style="flex: 2; width: 17%;">
+                <!-- Dropdown 1 -->
+                <select class="form-select" id="dropdown1" style="width: 13%;">
+                    <option value="item1">Item 1</option>
+                    <option value="item2">Item 2</option>
+                    <option value="item3">Item 3</option>
+                    <option value="item4">Item 4</option>
+                    <option value="item5">Item 5</option>
                 </select>
-                <select class="form-control">
-                    <option value="1">Option 1</option>
-                    <option value="2">Option 2</option>
-                    <option value="3">Option 3</option>
-                    <option value="4">Option 4</option>
-                    <option value="5">Option 5</option>
+                <!-- Dropdown 2 -->
+                <select class="form-select" id="dropdown2" style="width: 13%;">
+                    <option value="item1">Item 1</option>
+                    <option value="item2">Item 2</option>
+                    <option value="item3">Item 3</option>
+                    <option value="item4">Item 4</option>
+                    <option value="item5">Item 5</option>
                 </select>
-                <select class="form-control">
-                    <option value="1">Option 1</option>
-                    <option value="2">Option 2</option>
-                    <option value="3">Option 3</option>
-                    <option value="4">Option 4</option>
-                    <option value="5">Option 5</option>
+                <!-- Dropdown 3 -->
+                <select class="form-select" id="dropdown3" style="width: 13%;">
+                    <option value="item1">Item 1</option>
+                    <option value="item2">Item 2</option>
+                    <option value="item3">Item 3</option>
+                    <option value="item4">Item 4</option>
+                    <option value="item5">Item 5</option>
                 </select>
             </div>
             <div class="d-flex gap-2">
@@ -172,7 +181,6 @@
                     <th data-sort="benefit">Soni ↕</th>
                     <th data-sort="income">Narxi ↕</th>
                     <th data-sort="income">To'lov turi ↕</th>
-                    <th data-sort="income">Sana ↕</th>
                     <th data-sort="income">Mijoz ↕</th>
                 </tr>
                 </thead>
@@ -226,10 +234,6 @@
                                     <option value="pending">Qarz</option>
                                 </select>
                             </div>
-                    <div class="mb-3">
-                        <label class="form-label">Topshirish sanasi</label>
-                        <input type="date" class="form-control" id="returnDay">
-                    </div>
                     <div class="mb-3">
                         <label class="form-label">Mijoz</label>
                         <select class="form-control">
