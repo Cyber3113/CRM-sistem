@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,226 +8,241 @@
     <!-- bOOTSTRAP -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/partners.css">
-    <!-- icon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-<body>
+    <link rel="stylesheet" href="./css/debts.css">
     
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="./index.html">
+    <!-- icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="./index.html">
+                <img src="../images/milliycrm-logo.png" alt="logo" width="130px">
+            </a>
+            <button class="btn btn-dark mb-3" id="sidebar-toggler">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <div class="d-flex align-items-center">
+                <div class="language-switcher">
+                    <img id="flagIcon" src="https://flagcdn.com/w40/uz.png" alt="UZ Flag">
+                    <select id="languageSwitcher">
+                        <option value="uz" data-flag="https://flagcdn.com/w40/uz.png">Lotincha</option>
+                        <option value="ru" data-flag="https://flagcdn.com/w40/ru.png">Крилча</option>
+                        <option value="eng" data-flag="https://flagcdn.com/w40/eng.png">Inglizcha</option>
+                    </select>
+                </div>
+                <a href="../pages/profile.html" class="profile">
+                    <i class="fas fa-user"></i>
+                    <span class="name">Kholmatov</span>
+                    <span class="last-name"> Amriddin</span>
+                </a>
+                <button class="btn btn-light border-0" id="darkModeToggle">
+                    <i class="fas fa-moon" id="darkModeIcon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <div class="vh-100 d-flex flex-column" id="sidebar">
+
+        <a class="navbar-logos" href="./index.html">
             <img src="../images/milliycrm-logo.png" alt="logo" width="130px">
         </a>
-        <button class="btn btn-dark mb-3" id="sidebar-toggler">
-            <i class="fas fa-bars"></i>
-        </button>
-        
-        <div class="d-flex align-items-center">
-            <div class="language-switcher">
-                <img id="flagIcon" src="https://flagcdn.com/w40/uz.png" alt="UZ Flag">
-                <select id="languageSwitcher">
-                    <option value="uz" data-flag="https://flagcdn.com/w40/uz.png">Lotincha</option>
-                    <option value="ru" data-flag="https://flagcdn.com/w40/ru.png">Крилча</option>
-                    <option value="eng" data-flag="https://flagcdn.com/w40/eng.png">Inglizcha</option>
-                </select>
-            </div>
-            <a href="../pages/profile.html" class="profile">
-                <i class="fas fa-user"></i>
-                <span class="name">Kholmatov</span>
-                <span class="last-name"> Amriddin</span>
-              </a>
-            <button class="btn btn-light border-0" id="darkModeToggle">
-                <i class="fas fa-moon" id="darkModeIcon"></i>
-            </button>
-        </div>
-    </div>
-</nav>
 
-<!-- Sidebar -->
-<div class="vh-100 d-flex flex-column" id="sidebar">
-
-    <a class="navbar-logos" href="./index.html">
-        <img src="../images/milliycrm-logo.png" alt="logo" width="130px">
-    </a>
-    
-    <ul class="nav flex-column flex-grow-1">
-        <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Dashboard">
-            <a href="../../index.html" class="nav-link">
-                <i class="fa-solid fa-chart-simple"></i> <span style="margin-left: 10px;"> Dashboard</span>
-            </a>
-        </li>
-        <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Buxgalteriya">
-            <a href="../pages/accounting.html" class="nav-link">
-                <i class="fa-solid fa-calculator"></i> <span style="margin-left: 10px;"> Buxgalteriya</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="../pages/debts.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="right"
-               title="Qarzlar">
-                <i class="fa-solid fa-money-bill-transfer"></i> <span style="margin-left: 10px;"> Qarzlar</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="../pages/tasks.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="right"
-               title="Vazifalar">
-                <i class="fa-solid fa-list-check"></i> <span style="margin-left: 10px;"> Vazifalar</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="../pages/products.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="end"
-               title="Mahsulotlar">
-                <i class="fa-solid fa-shop"></i><span style="margin-left: 10px;"> Mahsulotlar</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="../pages/customers.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="end"
-               title="Mijozlar">
-                <i class="fa fa-users"></i><span style="margin-left: 10px;"> Mijozlar</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="../pages/partners.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="end"
-               title="Hamkorlar">
-                <i class="fa-solid fa-user-group"></i><span style="margin-left: 10px;"> Hamkorlar</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="../pages/payment.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="end"
-               title="To'lovlar">
-                <i class="fa-solid fa-wallet"></i><span style="margin-left: 10px;"> To'lovlar</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="../pages/sale.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="end"
-               title="Sotuv">
-               <i class="fa-solid fa-tag"></i><span style="margin-left: 10px;">Sotuv</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="../pages/popular.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="end"
-               title="Ommabop">
-               <i class="fa-solid fa-user-check"></i><span style="margin-left: 10px;">Ommabop</span>
-            </a>
-        </li>
-        </li>
-        <li class="nav-item">
-            <a href="../pages/chat.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="end"
-               title="Aloqa">
-               <i class="fa-solid fa-phone-volume"></i><span style="margin-left: 10px;"> Aloqa</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="/loiha/login.html" class="nav-link text-danger" data-target="#exitModal" data-bs-toggle="tooltip"
-               title="Hisobdan chiqish">
-                <i class="fa-solid fa-right-from-bracket"></i> <span style="margin-left: 10px;"> Chiqish</span>
-            </a>
-        </li>
-    </ul>
-</div>
-
-<!-- Main Content -->
-<div class="content">
-
-    <h1>Maxsulotlar ro'yxati</h1>
-
-    <div class="table-wrapper">
-        <div class="p-3 border-bottom d-flex justify-content-between align-items-center gap-3">
-            <div class="d-flex gap-2">
-                <input type="text" class="form-control" id="searchInput" placeholder="Qidirish...">
-            </div>
-            <div class="d-flex gap-2">
-                <button class="btn btn-primary" id="createBtn">+ <b>Yaratish</b></button>
-                <button class="btn btn-danger delete-btn" id="deleteBtn"><i class="fa-solid fa-trash"></i></button>
-            </div>
-        </div>
-        <div class="table-responsive">
-            <table class="table table-hover mb-0">
-                <thead>
-                <tr>
-                    <th class="checkbox-cell">
-                        <input type="checkbox" class="form-check-input" id="selectAll">
-                    </th>
-                    <th data-sort="id">ID ↕</th>
-                    <th data-sort="category">Kategoriya ↕</th>
-                    <th data-sort="name">Nomi ↕</th>
-                    <th data-sort="price">Narx ↕</th>
-                    <th data-sort="status">Holati ↕</th>
-                    <th data-sort="quantity">Miqdori ↕</th>
-                </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-        </div>
-        <div class="p-3 border-top d-flex justify-content-center" id="pagination"></div>
+        <ul class="nav flex-column flex-grow-1">
+            <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Dashboard">
+                <a href="../../index.html" class="nav-link">
+                    <i class="fa-solid fa-chart-simple"></i> <span style="margin-left: 10px;"> Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Buxgalteriya">
+                <a href="../pages/accounting.html" class="nav-link">
+                    <i class="fa-solid fa-calculator"></i> <span style="margin-left: 10px;"> Buxgalteriya</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="../pages/debts.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="right"
+                    title="Qarzlar">
+                    <i class="fa-solid fa-money-bill-transfer"></i> <span style="margin-left: 10px;"> Qarzlar</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="../pages/tasks.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="right"
+                    title="Vazifalar">
+                    <i class="fa-solid fa-list-check"></i> <span style="margin-left: 10px;"> Vazifalar</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="../pages/products.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="end"
+                    title="Mahsulotlar">
+                    <i class="fa-solid fa-shop"></i><span style="margin-left: 10px;"> Mahsulotlar</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="../pages/customers.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="end"
+                    title="Mijozlar">
+                    <i class="fa fa-users"></i><span style="margin-left: 10px;"> Mijozlar</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="../pages/partners.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="end"
+                    title="Hamkorlar">
+                    <i class="fa-solid fa-user-group"></i><span style="margin-left: 10px;"> Hamkorlar</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="../pages/payment.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="end"
+                    title="To'lovlar">
+                    <i class="fa-solid fa-wallet"></i><span style="margin-left: 10px;"> To'lovlar</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="../pages/sale.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="end"
+                    title="Sotuv">
+                    <i class="fa-solid fa-tag"></i><span style="margin-left: 10px;">Sotuv</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="../pages/popular.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="end"
+                    title="Ommabop">
+                    <i class="fa-solid fa-user-check"></i><span style="margin-left: 10px;">Ommabop</span>
+                </a>
+            </li>
+            </li>
+            <li class="nav-item">
+                <a href="../pages/chat.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="end"
+                    title="Aloqa">
+                    <i class="fa-solid fa-phone-volume"></i><span style="margin-left: 10px;"> Aloqa</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/loiha/login.html" class="nav-link text-danger" data-target="#exitModal"
+                    data-bs-toggle="tooltip" title="Hisobdan chiqish">
+                    <i class="fa-solid fa-right-from-bracket"></i> <span style="margin-left: 10px;"> Chiqish</span>
+                </a>
+            </li>
+        </ul>
     </div>
 
+    <!-- Main Content -->
+    <div class="content">
 
-    <div class="modal fade" id="createModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Yangi mahsulot qo'shish</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h1>Maxsulotlar ro'yxati</h1>
+
+        <div class="table-wrapper">
+            <div class="p-3 border-bottom d-flex justify-content-between align-items-center gap-3">
+                <div class="d-flex gap-2">
+                    <input type="text" class="form-control" id="searchInput" placeholder="Qidirish...">
                 </div>
-                <div class="modal-body">
-                    <div class="mb-3">
-                        <label class="form-label">Kategoriya</label>
-                        <select class="form-control">
-                            <option value="category 1">Oziq-Ovqat</option>
-                            <option value="category 2">Suv</option>
-                            <option value="category 3">Kiyim-kechak</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Mahsulot nomi</label>
-                        <input type="text" class="form-control" id="nameInput" placeholder="Cola">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Narxi</label>
-                        <input type="number" class="form-control" id="price" placeholder="1.000.000">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Holati</label>
-                        <select class="form-control">
-                            <option value="new">Yangi</option>
-                            <option value="none">Aniq emas</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Miqdori (dona) </label>
-                        <input type="number" class="form-control" id="quantity" placeholder="100">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">To'lliq Ma'lumot</label>
-                        <textarea class="form-control" id="description" placeholder="Qizil olma"></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Mahsulot rasmi (shart emas)</label>
-                        <input type="file" class="form-control" id="image" placeholder="100">
-                    </div>
+                <div class="d-flex gap-2">
+                    <button class="btn btn-primary" id="createBtn">+ <b>Yaratish</b></button>
+                    <button class="btn btn-danger delete-btn" id="deleteBtn"><i class="fa-solid fa-trash"></i></button>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bekor qilish</button>
-                    <button type="button" class="btn btn-primary">Saqlash</button>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th class="checkbox-cell">
+                                <input type="checkbox" class="form-check-input" id="selectAll">
+                            </th>
+                            <th data-sort="id">ID ↕</th>
+                            <th data-sort="category">Kategoriya ↕</th>
+                            <th data-sort="name">Nomi ↕</th>
+                            <th data-sort="price">Narx ↕</th>
+                            <th data-sort="status">Holati ↕</th>
+                            <th data-sort="quantity">Miqdori ↕</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div class="p-3 border-top d-flex justify-content-center" id="pagination"></div>
+        </div>
+
+
+        <div class="modal fade" id="createModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Yangi mahsulot qo'shish</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="input-control">
+                            <div>
+                                <div class="mb-3">
+                                    <label class="form-label">Kategoriya</label>
+                                    <select class="form-control">
+                                        <option value="category 1">Oziq-Ovqat</option>
+                                        <option value="category 2">Suv</option>
+                                        <option value="category 3">Kiyim-kechak</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Mahsulot nomi</label>
+                                    <input type="text" class="form-control" id="nameInput" placeholder="Cola">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Narxi</label>
+                                    <input type="number" class="form-control" id="price" placeholder="1.000.000">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Holati</label>
+                                    <select class="form-control">
+                                        <option value="new">Yangi</option>
+                                        <option value="none">Aniq emas</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="mb-3">
+                                    <label class="form-label">Miqdori (dona) </label>
+                                    <input type="number" class="form-control" id="quantity" placeholder="100">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Mahsulot sotiladigan narxi foizda</label>
+                                    <input type="number" class="form-control" id="quantity" placeholder="10 (% yozmang!)">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">To'lliq Ma'lumot</label>
+                                    <textarea class="form-control" id="description" placeholder="Qizil olma"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Mahsulot rasmi (shart emas)</label>
+                                    <input type="file" class="form-control" id="image" placeholder="100">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bekor qilish</button>
+                        <button type="button" class="btn btn-primary">Saqlash</button>
+                    </div>
                 </div>
             </div>
         </div>
+
+
     </div>
-
-
-    </div>    
 
     <script>
         async function fetchProducts() {
             try {
                 const response = await fetch("http://127.0.0.1:8000/api/product/");
                 if (!response.ok) throw new Error("API dan ma'lumot olishda xatolik");
-    
+
                 const data = await response.json();
                 const tbody = document.querySelector('tbody');
                 tbody.innerHTML = '';
-    
+
                 data.forEach(item => {
                     const row = document.createElement("tr");
                     row.innerHTML = `
@@ -242,18 +258,21 @@
                     `;
                     tbody.appendChild(row);
                 });
-    
+
             } catch (error) {
                 console.error("Xatolik:", error);
             }
         }
-    
+
         fetchProducts();
     </script>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js" integrity="sha512-b+nQTCdtTBIRIbraqNEwsjB6UvL3UEMkXnhzd8awtCYh0Kcsjl9uEgwVFVbhoj3uu1DO1ZMacNvLoyJJiNfcvg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"
+        integrity="sha512-b+nQTCdtTBIRIbraqNEwsjB6UvL3UEMkXnhzd8awtCYh0Kcsjl9uEgwVFVbhoj3uu1DO1ZMacNvLoyJJiNfcvg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./js/partners.js"></script>
     <script src="./js/dark-mode.js"></script>
 </body>
+
 </html>
