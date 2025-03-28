@@ -390,6 +390,7 @@ select{
 }
 
 .modal {
+    display: none;
     pointer-events: none;
 }
 

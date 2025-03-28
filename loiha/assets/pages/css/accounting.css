@@ -498,6 +498,7 @@ a{
     max-width: 850px;
 }
 .modal {
+    display: none;
     pointer-events: none;
 }
 

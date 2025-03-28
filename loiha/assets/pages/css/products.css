@@ -207,6 +207,7 @@ a{
 }
 
 .modal {
+    display: none;
     pointer-events: none;
 }
 

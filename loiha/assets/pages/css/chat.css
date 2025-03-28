@@ -317,18 +317,7 @@ button {
     cursor: pointer;
 }
 
-select {
-    width: 180px;
-    cursor: pointer;
-    border: 1px solid #ccc;
-    padding: 5px 10px;
-    font-size: 14px;
-    color: #333;
-    text-align: center;
-    border-radius: 4px;
-    background: #f8f9fa;
-    margin: 5px 10px 5px 10px;
-}
+
 .buttonsdel {
     width: 100%;
     display: flex;
@@ -527,13 +516,36 @@ p{
     width: 24px;
     height: 16px;
 }
+.filter-dropdowns select{
+    cursor: pointer;
+    width: 133px;
+    margin: 0 10px;
+    padding: 5px 10px;
+}
+#sidebar:hover ~ .content{
+    margin-left: 375px;
+}
+.language-switcher {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff;
+    margin-right: 10px;
+    background-color: #f8f9fa;
+    border-radius: 20px;
+    padding: 5px 10px;
+    width: 150px;   
+}
+.language-switcher:hover{
+    background-color: #4f4f4f3b;
+}
 @media (max-width: 800px) {
     #chat-container {
         width: 250px;
         right: 25px;
     }
     .card-edit{
-        right: 60px;
+        right: 70px;
     }
     .addbutton{
         margin-right: 20px;
@@ -561,14 +573,11 @@ p{
     .dark-mode select{
         width: 125px;
     }
-    select {
-        width: 125px;
-    }
     .save{
         padding: 10px 95px;
     }
     .card img{
-        margin-left: 70px;
+        margin-left: auto;
     }
     .input-control{
         display: block;
@@ -576,6 +585,12 @@ p{
     }
     .mb-3{
         width: auto;
+    }
+    .filter-dropdowns select {
+        width: 76px;
+        margin: 0 10px;
+        padding: 4px 0px;
+        font-size: 12px;
     }
     
 }
@@ -592,9 +607,6 @@ p{
     }
     .content{
         margin-left: 10px;
-    }
-    select {
-        width: 100px;
     }
     .container {
         max-width: 95%;
@@ -620,5 +632,8 @@ p{
     }
     .mb-3{
         width: 300px;
+    }
+    .card-edit{
+        right: 90px;
     }
 }
