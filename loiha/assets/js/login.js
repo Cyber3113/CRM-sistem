@@ -1,0 +1,34 @@
+loginForm = document.querySelector('.login-form');
+alertMessage = document.querySelector('.alert');
+alertMessage.style.display = 'none';
+loginForm.addEventListener('submit', function (e) {
+    alertMessage.style.display = 'block';
+    alertMessage.classList.remove('alert-success');
+    alertMessage.classList.remove('alert-danger');
+    alertMessage.classList.add('alert-warning');
+    alertMessage.innerHTML = 'Iltimos kuting...';
+    e.preventDefault();
+    let formData = new FormData(loginForm);
+    let data = {};
+    for (let [key, value] of formData.entries()) {
+        data[key] = value;
+    }
+    console.log(data)
+    console.log('login submitted');
+    axios.post('http://127.0.0.1:8000/api/auth/login/', data).then(response => {
+        console.log('response data', response.data);
+        alertMessage.style.display = 'block';
+        alertMessage.classList.remove('alert-danger');
+        alertMessage.classList.remove('alert-warning');
+        alertMessage.classList.add('alert-success');
+        alertMessage.innerHTML = response.data.message;
+        setTimeout(() => {
+            console.log("ishladi")
+        }, 1000);
+    }).catch(error => {
+        console.log('error', error.response.data?.message);
+        alertMessage.innerHTML = error.response.data?.message;
+        alertMessage.classList.add('alert-danger');
+        alertMessage.style.display = 'block';
+    })
+})
