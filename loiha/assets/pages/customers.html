@@ -48,7 +48,7 @@
 <!-- Sidebar -->
 <div class="vh-100 d-flex flex-column" id="sidebar">
 
-    <a class="navbar-logos" href="./index.html">
+    <a class="navbar-logos" href="../../index.html">
         <img src="../images/milliycrm-logo.png" alt="logo" width="130px">
     </a>
 
@@ -118,7 +118,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="/loiha/login.html" class="nav-link text-danger" data-target="#exitModal" data-bs-toggle="tooltip"
+            <a href="../../login.html" class="nav-link text-danger" data-target="#exitModal" data-bs-toggle="tooltip"
                title="Hisobdan chiqish">
                 <i class="fa-solid fa-right-from-bracket"></i> <span style="margin-left: 10px;"> Chiqish</span>
             </a>
@@ -162,7 +162,7 @@
     </div>
 
 
-    <div class="modal fade" id="createModal" tabindex="-1" aria-hidden="true">
+    <div class="modal fade" id="createModal" tabindex="-1" style="display: block;" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <form class="customer-form-modal">
@@ -173,24 +173,27 @@
                     <div class="modal-body">
 
                         <div class="mb-3">
-                            <label class="form-label">Ism Familiya</label>
-                            <input type="text" class="form-control" id="nameInput" placeholder="Viktor">
+                            <label class="form-label" for="nameInput">Ism Familiya</label>
+                            <input type="text" name="name" class="form-control" id="nameInput" placeholder="Viktor">
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Telefon </label>
-                            <input type="number" class="form-control" id="phone" placeholder="+998900000000">
+                            <label class="form-label" for="phone">Telefon </label>
+                            <input type="number" name="phone_number" class="form-control" id="phone"
+                                   placeholder="+998900000000">
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="crm@gmail.com">
+                            <label class="form-label" for="email">Email</label>
+                            <input type="email" name="email" class="form-control" id="email"
+                                   placeholder="crm@gmail.com">
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Tashkilot nomi</label>
-                            <input type="text" class="form-control" id="organization" placeholder="Itbrain">
+                            <label class="form-label" for="organization">Tashkilot nomi</label>
+                            <input type="text" name="organization_name" class="form-control" id="organization"
+                                   placeholder="Itbrain">
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Hamkorlik</label>
-                            <select>
+                            <label class="form-label" for="organization_time">Hamkorlik</label>
+                            <select name="organization_time" id="organization_time" class="form-control">
                                 <option value="all">1 oy</option>
                                 <option value="Filial 1">1 yil</option>
                                 <option value="Filial 2">5 yil</option>

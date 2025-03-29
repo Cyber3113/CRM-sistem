@@ -2,7 +2,7 @@ const columns = [
     {name: 'ID', data: 'id', sortable: true},
     {name: 'Ism', data: 'name', sortable: true},
     {name: 'Pozitsiya', data: 'position', sortable: true},
-    {name: 'Maaʼlumot', data:'salary', sortable: true},
+    {name: 'Maaʼlumot', data: 'salary', sortable: true},
     {name: 'Amallar', data: 'actions', sortable: false}
 ];
 const data = [
@@ -173,23 +173,26 @@ document.getElementById('createBtn').addEventListener('click', () => {
 
 // Modal form submit (optional)
 const customerForm = document.querySelector('.customer-form-modal');
-if (customerForm) {
-    customerForm.addEventListener('submit', e => {
+customerForm.addEventListener('submit', e => {
         e.preventDefault();
-        const formData = new FormData(customerForm);
-        const newData = {};
-        formData.forEach((val, key) => newData[key] = val);
-
-        const newId = data.length ? data[data.length - 1].id + 1 : 1;
-        newData.id = newId;
-        newData.salary = parseInt(newData.salary);
-        data.push(newData);
-        sortedData = [...data];
-        updateTable();
-
-        bootstrap.Modal.getInstance(document.getElementById('createModal')).hide();
-    });
-}
+        const accessToken = localStorage.getItem('token');
+        console.log('iwladi')
+        const formData = new FormData();
+        for (const [key, value] of formData.entries()) {
+            // console.log(key, value);
+            formData.append(key, value);
+        }
+        axios.post('http://127.0.0.1:8000/api/customer/', formData, {
+            headers: {
+                "Authorization": `Bearer ${accessToken}`
+            }
+        }).then((response) => {
+            console.log(response);
+        }).catch((error) => {
+            console.log(error);
+        })
+    }
+)
 
 // Init
 updateTable();
