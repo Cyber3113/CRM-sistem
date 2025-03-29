@@ -12,6 +12,10 @@ const data = [
     {id: 4, name: 'Jamshid Umarov', position: 'Marketing', salary: 2200},
     {id: 5, name: 'Nodira Saidova', position: 'Analitik', salary: 2800}
 ];
+let isLoading = false;
+
+// bu loader uchun
+
 
 const itemsPerPage = 5;
 let currentPage = 1;
@@ -173,14 +177,44 @@ document.getElementById('createBtn').addEventListener('click', () => {
 
 // Modal form submit (optional)
 const customerForm = document.querySelector('.customer-form-modal');
+const organization_name = document.querySelector('#organization_name');
+const accessToken = localStorage.getItem('token');
+const getOrganization = () => {
+    axios.get('http://127.0.0.1:8000/api/organization/', {
+        headers: {
+            "Authorization": `Bearer ${accessToken}`
+        }
+    }).then(response => {
+        console.log(response.data?.results)
+        const responseData = response.data?.results
+        for (let i = 0; i < responseData.length; i++) {
+            console.log(responseData[i]);
+            organization_name.innerHTML += `<option value="${responseData[i].id}">${responseData[i].name}</option>`;
+            console.log(organization_name)
+        }
+    }).catch(error => {
+        console.log('Xato:', error.response?.data || error.message);
+    });
+}
+getOrganization();
 customerForm.addEventListener('submit', e => {
         e.preventDefault();
-        const accessToken = localStorage.getItem('token');
+
         console.log('iwladi')
+        const customer = {}
+        for (let i = 0; i < customerForm.elements.length; i++) {
+            const element = customerForm.elements[i];
+            if (element.name) {
+                customer[element.name] = element.value;
+            }
+        }
         const formData = new FormData();
-        for (const [key, value] of formData.entries()) {
-            // console.log(key, value);
-            formData.append(key, value);
+        for (let key in customer) {
+            formData.append(key, customer[key]);
+        }
+        console.log('token', accessToken)
+        for (let pair of formData.values()) {
+            console.log('pair', pair);
         }
         axios.post('http://127.0.0.1:8000/api/customer/', formData, {
             headers: {
@@ -188,11 +222,13 @@ customerForm.addEventListener('submit', e => {
             }
         }).then((response) => {
             console.log(response);
+            isLoading = true
         }).catch((error) => {
-            console.log(error);
-        })
+            console.log(error.response?.data || error.message);
+        });
     }
 )
 
 // Init
 updateTable();
+
