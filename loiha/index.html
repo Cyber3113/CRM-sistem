@@ -38,7 +38,7 @@
                 <i class="fas fa-user"></i>
                 <span class="name">Kholmatov</span>
                 <span class="last-name"> Amriddin</span>
-              </a>
+            </a>
             <button class="btn btn-light border-0" id="darkModeToggle">
                 <i class="fas fa-moon" id="darkModeIcon"></i>
             </button>
@@ -54,6 +54,9 @@
     </a>
 
     <ul class="nav flex-column flex-grow-1">
+        <button class="toggle-btn" onclick="toggleSidebar()">
+            <i class="fa-solid fa-bars"></i>
+        </button>
         <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="right"
             title="Dashboard">
             <a href="../loiha/index.html" class="nav-link">
@@ -61,7 +64,8 @@
             </a>
         </li>
         <li class="nav-item accordion-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Buxgalteriya">
-            <a href="#" class="nav-link accordion-toggle" data-bs-toggle="collapse" data-bs-target="#accounting-submenu">
+            <a href="#" class="nav-link accordion-toggle" data-bs-toggle="collapse"
+               data-bs-target="#accounting-submenu">
                 <i class="fa-solid fa-calculator"></i> <span style="margin-left: 10px;"> Buxgalteriya</span>
                 <i class="fa-solid fa-chevron-down ms-auto"></i>
             </a>
@@ -142,13 +146,13 @@
         <li class="nav-item">
             <a href="./assets/pages/popular.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="end"
                title="Ommabop">
-               <i class="fa-solid fa-user-check"></i><span style="margin-left: 10px;">Ommabop</span>
+                <i class="fa-solid fa-user-check"></i><span style="margin-left: 10px;">Ommabop</span>
             </a>
         </li>
         <li class="nav-item">
             <a href="./assets/pages/chat.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="end"
                title="Aloqa">
-               <i class="fa-solid fa-phone-volume"></i><span style="margin-left: 10px;"> Aloqa</span>
+                <i class="fa-solid fa-phone-volume"></i><span style="margin-left: 10px;"> Aloqa</span>
             </a>
         </li>
         <li class="nav-item">
@@ -277,7 +281,7 @@
             </a>
 
             <!-- 2-row, 3-card -->
-             <a href="./assets/pages/invoices.html" class="col-md-4">
+            <a href="./assets/pages/invoices.html" class="col-md-4">
                 <div class="card p-3 shadow-card">
                     <div class="card-body d-flex align-items-center">
                         <i class="fa-solid fa-users icons"></i>
@@ -287,7 +291,7 @@
                         </div>
                     </div>
                 </div>
-             </a>
+            </a>
 
         </div>
     </div>
@@ -372,22 +376,22 @@
         <br>
         <div class="container">
             <p class="contact">Email: ITbrain_tc@gmail.com | Tel: +998943340414</p>
-          <nav class="footer-nav">
-            <img src="./assets/images/hamkorlar-logo.png" alt="logo">
-            <img src="./assets/images/hamkorlar-logo.png" alt="logo">
-            <img src="./assets/images/hamkorlar-logo.png" alt="logo">
-            <br><br>
-            <img src="./assets/images/hamkorlar-logo.png" alt="logo">
-            <img src="./assets/images/hamkorlar-logo.png" alt="logo">
-          </nav>
-          <div class="social-icons">
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#"><i class="fa-regular fa-paper-plane"></i></a>
-            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#"><i class="fa-solid fa-envelope"></i></a>
-          </div>
-          <p class="version">Versiya: 1.0.0</p>
-          <p>&copy; 2025 IT-BRAIN . Barcha huquqlar himoyalangan.</p>
+            <nav class="footer-nav">
+                <img src="./assets/images/hamkorlar-logo.png" alt="logo">
+                <img src="./assets/images/hamkorlar-logo.png" alt="logo">
+                <img src="./assets/images/hamkorlar-logo.png" alt="logo">
+                <br><br>
+                <img src="./assets/images/hamkorlar-logo.png" alt="logo">
+                <img src="./assets/images/hamkorlar-logo.png" alt="logo">
+            </nav>
+            <div class="social-icons">
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-regular fa-paper-plane"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+            <p class="version">Versiya: 1.0.0</p>
+            <p>&copy; 2025 IT-BRAIN . Barcha huquqlar himoyalangan.</p>
         </div>
     </footer>
 
@@ -406,10 +410,10 @@
 <script src="./assets/js/app.js"></script>
 <script src="./assets/js/script.js"></script>
 <script>
-    document.querySelector('.nav-item[title="Buxgalteriya"]').addEventListener('mouseenter', function() {
+    document.querySelector('.nav-item[title="Buxgalteriya"]').addEventListener('mouseenter', function () {
         document.getElementById('accounting-submenu').classList.remove('d-none');
     });
-    document.querySelector('.nav-item[title="Buxgalteriya"]').addEventListener('mouseleave', function() {
+    document.querySelector('.nav-item[title="Buxgalteriya"]').addEventListener('mouseleave', function () {
         document.getElementById('accounting-submenu').classList.add('d-none');
     });
 </script>

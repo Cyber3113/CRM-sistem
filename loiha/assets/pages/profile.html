@@ -128,54 +128,46 @@
 </div>
 
 <div class="content">
-    <div class="profile-card">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSX0VyN1J2YLz6nBdYl-uu05expOKPwJ5BhHHdHzfZAwZh7onXXC3fDa3QgBMwaVCD5VlA&usqp=CAU" alt="Profile Picture" class="avatar">
-        <h2>Kholmatov Amriddin</h2>
-        <p>Email: crm@gmail.com</p>
-        <p>Telefon: +998000000000</p>
-        <p>Tug‘ilgan sana: 01.01.1001</p>
-        <p>Kasb: Proyect Manager</p>
-        <button class="btn btn-primary" id="createBtn" onclick="openprofileModal()">Tahrirlash</button>
-    </div>
-    
-    <div class="modal" tabindex="-1" id="modal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Profil Sozlamalari</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeprofileModal()" ></button>
+    <div class="profile-container">
+        <div class="profile-header">
+            <div class="profile-img" onclick="uploadImage()">
+                <img id="profilePic" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSX0VyN1J2YLz6nBdYl-uu05expOKPwJ5BhHHdHzfZAwZh7onXXC3fDa3QgBMwaVCD5VlA&usqp=CAU" alt="Profil rasmi">
+                <div class="upload-icon">
+                    <i class="fa-solid fa-image"></i>
                 </div>
-                <div class="modal-body">
-                    <div class="mb-3">
-                        <label class="form-label">Ism</label>
-                        <input type="text" class="form-control" id="nameInput" placeholder="Amriddin">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Familiya</label>
-                        <input type="text" class="form-control" id="DebtNumber" placeholder="Hkolmatov">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Telefon raqam</label>
-                        <input type="number" class="form-control" id="phone" placeholder="+998" value="+998">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Lavozim</label>
-                        <input type="text" class="form-control" id="receiptDay" placeholder="Admin">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Gmail</label>
-                        <input type="gmail" class="form-control" id="returnDay" placeholder="crm@gmail.com">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="closeprofileModal()">Bekor qilish</button>
-                    <button type="button" class="btn btn-primary">Saqlash</button>
-                </div>
+                <input type="file" id="fileInput" accept="image/*" onchange="previewImage(event)">
+            </div>
+            <div class="info">
+                <h2>Kholmatov Amriddin</h2>
+                <p>amriddin2003a@gmail.com</p>
             </div>
         </div>
+        <form id="profileForm">
+            <div class="form-group">
+                <div>
+                    <label for="firstName">Ism:</label>
+                    <input type="text" id="firstName" placeholder="Ismingiz" disabled>
+                </div>
+                <div>
+                    <label for="lastName">Familiya:</label>
+                    <input type="text" id="lastName" placeholder="Familiyangiz" disabled>
+                </div>
+            </div>
+            <div class="form-group">
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" placeholder="Emailingiz" disabled>
+                </div>
+                <div>
+                    <label for="phone">Telefon:</label>
+                    <input type="tel" id="phone" placeholder="Telefon raqamingiz" disabled>
+                </div>
+            </div>
+            <label for="bio">Bio:</label>
+            <textarea id="bio" rows="3" placeholder="O‘zingiz haqingizda qisqacha yozing" disabled></textarea>
+            <button type="button" id="toggleButton" onclick="toggleEditMode()" class="save">Tahrirlash</button>
+        </form>
     </div>
-
-
 </div>
 
 

@@ -22,9 +22,10 @@ loginForm.addEventListener('submit', function (e) {
         alertMessage.classList.remove('alert-warning');
         alertMessage.classList.add('alert-success');
         alertMessage.innerHTML = response.data.message;
-        setTimeout(() => {
-            console.log("ishladi")
-        }, 1000);
+        loginForm.reset();
+        localStorage.clear();
+        localStorage.setItem('token', response.data.access);
+        window.location.href = 'index.html';
     }).catch(error => {
         console.log('error', error.response.data?.message);
         alertMessage.innerHTML = error.response.data?.message;
