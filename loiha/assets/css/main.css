@@ -67,20 +67,19 @@ a {
 #sidebar {
     width: 80px;
     background-color: white;
-    box-shadow: 4px 0 6px rgba(0, 0, 0, 0.1);
-    transition: width 0.3s;
     position: fixed;
-    top: 75px; /* Navbar balandligi */
+    top: 75px;
     left: 0;
-    height: calc(100vh - 56px);
-    overflow: hidden;
+    height: calc(100vh - 75px);
     z-index: 1000;
+    transition: width 0.3s;
+    overflow: hidden;
     padding: 1rem;
-    max-height: 100vh;
-    overflow-y: auto;
     padding-top: 45px;
+    box-shadow: 4px 0 6px rgba(0, 0, 0, 0.1);
 }
 
+/* Kengaytirilgan holat */
 #sidebar.expanded {
     width: 250px;
 }
@@ -848,11 +847,89 @@ h2::after {
 
 /* toogle button */
 .toggle-btn {
-    background: none;
-    border: none;
-    font-size: 24px;
+    position: fixed;
+    top: 85px; /* Navbar ostida */
+    left: 80px; /* Sidebar kengligi bo‘yicha */
+    width: 40px;
+    height: 40px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    font-size: 18px;
     cursor: pointer;
+    z-index: 1100;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: left 0.3s;
+}
+
+#sidebar.expanded + .toggle-btn {
+    left: 250px;
+}
+
+#sidebar {
+    width: 80px;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 1000;
+    transition: width 0.3s;
+    box-shadow: 4px 0 6px rgba(0, 0, 0, 0.1);
+    overflow-x: hidden;
+}
+
+#sidebar:hover {
+    width: 250px;
+}
+
+#sidebar .nav-link {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    color: black;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+#sidebar .nav-link:hover {
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+}
+
+#sidebar .nav-link i {
+    width: 25px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+#sidebar .nav-link span {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.3s, transform 0.3s;
+    margin-left: 10px;
+}
+
+#sidebar:hover .nav-link span {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.navbar-logos {
     padding: 10px;
-    text-align: left;
-    width: 100%;
+    display: block;
+    text-align: center;
+}
+
+.navbar-logos img {
+    width: 40px;
+    transition: width 0.3s;
+}
+
+#sidebar:hover .navbar-logos img {
+    width: 150px;
 }

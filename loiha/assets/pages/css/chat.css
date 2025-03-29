@@ -182,7 +182,7 @@ chat-body .message .message-options {
 .modal-content{
     padding: 20px;
     margin: auto 50px;
-    width: 400px;
+    width: 800px;
     text-align: start;
 }
 @media (max-width: 800px) {
@@ -277,7 +277,10 @@ h1 {
     justify-content: center;
     font-weight: 600;
 }
-
+.input-control{
+    display: flex;
+    justify-content: space-between;
+}
 .modal {
     display: none;
     position: fixed;
@@ -538,6 +541,9 @@ p{
 }
 .language-switcher:hover{
     background-color: #4f4f4f3b;
+}
+.mb-3{
+    width: 300px;
 }
 @media (max-width: 800px) {
     #chat-container {
