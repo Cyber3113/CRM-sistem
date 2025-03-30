@@ -1,16 +1,39 @@
-const data = [
-    {id: 1, name: 'Aziz Karimov', position: 'Dasturchi', salary: 2500},
-    {id: 2, name: 'Dilshod Aliev', position: 'Dizayner', salary: 2000},
-    {id: 3, name: 'Malika Azizova', position: 'Menejer', salary: 3000},
-    {id: 4, name: 'Jamshid Umarov', position: 'Marketing', salary: 2200},
-    {id: 5, name: 'Nodira Saidova', position: 'Analitik', salary: 2800}
-];
+let data = []
 
-function renderTable() {
-    const tbody = document.querySelector('tbody');
+
+// get data from server
+const token = localStorage.getItem('token');
+const getTaskData = () => {
+    axios.get('http://127.0.0.1:8000/api/task/', {
+        headers: {
+            "Authorization": `Bearer ${token}`
+        }
+    }).then(response => {
+        console.log('response', response.data.results);
+        renderTable(response.data.results);
+        data = response.data.results;
+    }).catch(error => {
+        console.log('error', error);
+    });
+}
+
+getTaskData();
+
+
+function renderTable(items) {
+    const tbody = document.querySelector('.tbody-tasks');
     tbody.innerHTML = '';
+    console.log(items.length);
+    if (items.length === 0) {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td colspan="10" class="text-center">No data found</td>
+        `;
+        tbody.appendChild(row);
+        return;
+    }
 
-    data.forEach(item => {
+    items.forEach(item => {
         const row = document.createElement('tr');
         row.innerHTML = `
             <td class="checkbox-cell">
@@ -19,7 +42,12 @@ function renderTable() {
             <td>${item.id}</td>
             <td>${item.name}</td>
             <td>${item.position}</td>
-            <td>$${item.salary}</td>
+            <td>${item.phone_number}</td>
+            <td>${item.price}</td>
+            <td>${item.branch}</td>
+            <td>${item.issued_date}</td>
+            <td>${item.return_date}</td>
+            <td>${item.task}</td>
         `;
         tbody.appendChild(row);
     });
@@ -30,39 +58,14 @@ document.getElementById('createBtn').addEventListener('click', () => {
     modal.show();
 });
 
-renderTable();
+renderTable(data);
 
-const itemsPerPage = 5;
+let itemsPerPage = 5;
 let currentPage = 1;
 let sortedData = [...data];
 let currentSort = {column: '', direction: 'asc'};
 let selectedRows = new Set();
 
-function renderTable(items) {
-    const tbody = document.querySelector('tbody');
-    tbody.innerHTML = '';
-
-    items.forEach(item => {
-        const row = document.createElement('tr');
-        row.innerHTML = `
-                <td class="checkbox-cell">
-                    <input type="checkbox" class="form-check-input row-checkbox"
-                        data-id="${item.id}" ${selectedRows.has(item.id) ? 'checked' : ''}>
-                </td>
-                <td>${item.id}</td>
-                <td>${item.name}</td>
-                <td>${item.position}</td>
-                <td>$${item.salary}</td>
-            `;
-        tbody.appendChild(row);
-    });
-
-    document.querySelectorAll('.row-checkbox').forEach(checkbox => {
-        checkbox.addEventListener('change', handleRowSelect);
-    });
-
-    updateSelectAllCheckbox();
-}
 
 function renderPagination() {
     const totalPages = Math.ceil(sortedData.length / itemsPerPage);
@@ -106,15 +109,15 @@ function handleSelectAll(e) {
     updateDeleteButton();
 }
 
-function updateSelectAllCheckbox() {
-    const selectAllCheckbox = document.getElementById('selectAll');
-    const start = (currentPage - 1) * itemsPerPage;
-    const end = start + itemsPerPage;
-    const currentPageItems = sortedData.slice(start, end);
-    const allSelected = currentPageItems.every(item => selectedRows.has(item.id));
-
-    selectAllCheckbox.checked = allSelected;
-}
+// function updateSelectAllCheckbox() {
+//     const selectAllCheckbox = document.getElementById('selectAll');
+//     const start = (currentPage - 1) * itemsPerPage;
+//     const end = start + itemsPerPage;
+//     const currentPageItems = sortedData.slice(start, end);
+//     const allSelected = currentPageItems.every(item => selectedRows.has(item.id));
+//
+//     selectAllCheckbox.checked = allSelected;
+// }
 
 function updateDeleteButton() {
     const deleteBtn = document.getElementById('deleteBtn');
@@ -195,3 +198,5 @@ document.getElementById('selectAll').addEventListener('change', handleSelectAll)
 document.getElementById('deleteBtn').addEventListener('click', handleDelete);
 
 updateTable();
+
+

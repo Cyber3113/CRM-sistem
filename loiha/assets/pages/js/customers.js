@@ -2,39 +2,44 @@ const columns = [
     {name: 'ID', data: 'id', sortable: true},
     {name: 'Ism', data: 'name', sortable: true},
     {name: 'Pozitsiya', data: 'position', sortable: true},
-    {name: 'Maaʼlumot', data: 'salary', sortable: true},
-    {name: 'Amallar', data: 'actions', sortable: false}
-];
-const data = [
-    {id: 1, name: 'Aziz Karimov', position: 'Dasturchi', salary: 2500},
-    {id: 2, name: 'Dilshod Aliev', position: 'Dizayner', salary: 2000},
-    {id: 3, name: 'Malika Azizova', position: 'Menejer', salary: 3000},
-    {id: 4, name: 'Jamshid Umarov', position: 'Marketing', salary: 2200},
-    {id: 5, name: 'Nodira Saidova', position: 'Analitik', salary: 2800}
+    {name: 'Maaʼlumot', data: 'salary', sortable: true}
 ];
 let isLoading = false;
 
-// bu loader uchun
+// for loader
 
 
 const itemsPerPage = 5;
+let tableData = [];
 let currentPage = 1;
-let sortedData = [...data];
+let sortedData = [...tableData];
 let currentSort = {column: '', direction: 'asc'};
 let selectedRows = new Set();
+let searchText = ''
 
+const showRowDataModal = (rowData) => {
+    console.log('showRowDataModal', rowData);
+}
+
+// Data
 function renderTable(items) {
     const tbody = document.querySelector('tbody');
     tbody.innerHTML = '';
 
     items.forEach(item => {
         const row = document.createElement('tr');
+
+        row.addEventListener('dblclick', () => {
+            showRowDataModal(item);
+        })
+        row.style.cursor = 'pointer';
+
         row.innerHTML = `
             <td><input type="checkbox" class="form-check-input row-checkbox" data-id="${item.id}" ${selectedRows.has(item.id) ? 'checked' : ''}></td>
             <td>${item.id}</td>
             <td>${item.name}</td>
-            <td>${item.position}</td>
-            <td>$${item.salary}</td>
+            <td>${item.phone_number}</td>
+            <td>${item.email}</td>
             <td>
                 <button class="btn btn-sm btn-primary me-1 edit-btn" data-id="${item.id}"><i class="fas fa-edit"></i></button>
                 <button class="btn btn-sm btn-danger delete-row-btn" data-id="${item.id}"><i class="fas fa-trash"></i></button>
@@ -50,6 +55,8 @@ function renderTable(items) {
     updateSelectAllCheckbox();
 }
 
+
+// Render pagination
 function renderPagination() {
     const totalPages = Math.ceil(sortedData.length / itemsPerPage);
     const pagination = document.getElementById('pagination');
@@ -67,6 +74,8 @@ function renderPagination() {
     }
 }
 
+
+// Handle row select
 function handleRowSelect(e) {
     const id = Number(e.target.dataset.id);
     if (e.target.checked) {
@@ -111,15 +120,15 @@ function handleDelete() {
 function deleteSingleRow(e) {
     const id = Number(e.target.closest('button').dataset.id);
     sortedData = sortedData.filter(item => item.id !== id);
-    data.splice(data.findIndex(item => item.id === id), 1);
+    tableData.splice(data.findIndex(item => item.id === id), 1);
     selectedRows.delete(id);
     updateTable();
 }
 
 function editRow(e) {
     const id = Number(e.target.closest('button').dataset.id);
-    const item = data.find(item => item.id === id);
-    alert(`Edit qilish: ${item.name} (${item.position})`);
+    const item = tableData.find(item => item.id === id);
+    alert(`Edit qilish: ${item.name} (${item.phone_number})`);
     // Shu yerga modal ochish va ma'lumotni tahrirlash logikasini qo‘shish mumkin
 }
 
@@ -145,9 +154,9 @@ function sortData(column) {
 
 function searchData(term) {
     if (!term) {
-        sortedData = [...data];
+        sortedData = [...tableData];
     } else {
-        sortedData = data.filter(item =>
+        sortedData = tableData.filter(item =>
             Object.values(item).some(val =>
                 val.toString().toLowerCase().includes(term.toLowerCase())
             )
@@ -179,6 +188,8 @@ document.getElementById('createBtn').addEventListener('click', () => {
 const customerForm = document.querySelector('.customer-form-modal');
 const organization_name = document.querySelector('#organization_name');
 const accessToken = localStorage.getItem('token');
+
+// Get organizations
 const getOrganization = () => {
     axios.get('http://127.0.0.1:8000/api/organization/', {
         headers: {
@@ -197,9 +208,31 @@ const getOrganization = () => {
     });
 }
 getOrganization();
+
+// Get customers
+const getCustomers = () => {
+    try {
+        axios.get(`http://127.0.0.1:8000/api/customer?search=${searchText}`, {
+            headers: {
+                "Authorization": `Bearer ${accessToken}`
+            }
+        }).then(response => {
+            console.log('datas', response.data.results)
+            tableData = response.data.results
+            renderTable(tableData)
+        }).catch(error => {
+            console.log(error);
+        })
+    } catch (error) {
+        console.log(error);
+    }
+}
+getCustomers();
+
+// Create customer
 customerForm.addEventListener('submit', e => {
         e.preventDefault();
-
+        console.log(tableData)
         console.log('iwladi')
         const customer = {}
         for (let i = 0; i < customerForm.elements.length; i++) {
@@ -212,17 +245,13 @@ customerForm.addEventListener('submit', e => {
         for (let key in customer) {
             formData.append(key, customer[key]);
         }
-        console.log('token', accessToken)
-        for (let pair of formData.values()) {
-            console.log('pair', pair);
-        }
         axios.post('http://127.0.0.1:8000/api/customer/', formData, {
             headers: {
                 "Authorization": `Bearer ${accessToken}`
             }
         }).then((response) => {
             console.log(response);
-            isLoading = true
+
         }).catch((error) => {
             console.log(error.response?.data || error.message);
         });
@@ -231,4 +260,3 @@ customerForm.addEventListener('submit', e => {
 
 // Init
 updateTable();
-
