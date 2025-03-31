@@ -155,11 +155,36 @@
                     <th data-sort="branch">Filial ↕</th>
                     <th data-sort="income">Berilgan sana ↕</th>
                     <th data-sort="income">Topshirish sanasi ↕</th>
-                    <th>Vazifa</th> <!-- Added a new column for the Vazifa button -->
+                    <th>Vazifa</th>
+                    <th data-sort="edit">Tahrirlash</th>
+                    <th data-sort="view">Ko'rish</th>
                 </tr>
                 </thead>
                 <tbody class="tbody-tasks">
-
+                <tr>
+                    <td>
+                        <input type="checkbox" class="form-check-input">
+                    </td>
+                    <td>1</td>
+                    <td>Viktor</td>
+                    <td>Sotuvchi</td>
+                    <td>+998901234567</td>
+                    <td>1,000,000</td>
+                    <td>Sariosiyo</td>
+                    <td>2023-01-01</td>
+                    <td>2023-01-10</td>
+                    <td>Vazifa tafsilotlari</td>
+                    <td>
+                        <button class="btn btn-warning btn-sm edit-btn" data-id="${item.id}">
+                            <i class="fas fa-pen"></i>
+                        </button>
+                    </td>
+                    <td>
+                        <button class="btn btn-info btn-sm view-btn" data-id="${item.id}">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </td>
+                </tr>
                 </tbody>
             </table>
         </div>
@@ -180,6 +205,75 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Yopish</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- View Task Modal -->
+    <div class="modal fade" id="viewTaskModal" tabindex="-1" aria-labelledby="viewTaskModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="viewTaskModalLabel">Vazifa Tafsilotlari</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h5 id="taskTitle" class="mb-3"></h5>
+                    <p id="taskDetails"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Yopish</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Task Modal -->
+    <div class="modal fade" id="editTaskModal" tabindex="-1" aria-labelledby="editTaskModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editTaskModalLabel">Vazifani Tahrirlash</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">Ism</label>
+                        <input type="text" class="form-control" id="editNameInput">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Lavozim</label>
+                        <input type="text" class="form-control" id="editPositionInput">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Telefon raqam</label>
+                        <input type="text" class="form-control" id="editPhoneInput">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Summasi</label>
+                        <input type="number" class="form-control" id="editPriceInput">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Filial</label>
+                        <input type="text" class="form-control" id="editBranchInput">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Berilgan sana</label>
+                        <input type="date" class="form-control" id="editIssuedDateInput">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Topshirish sanasi</label>
+                        <input type="date" class="form-control" id="editReturnDateInput">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Vazifa</label>
+                        <textarea class="form-control" id="editTaskInput"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bekor qilish</button>
+                    <button type="button" class="btn btn-primary" id="saveEditBtn">Saqlash</button>
                 </div>
             </div>
         </div>
@@ -252,7 +346,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"
         integrity="sha512-b+nQTCdtTBIRIbraqNEwsjB6UvL3UEMkXnhzd8awtCYh0Kcsjl9uEgwVFVbhoj3uu1DO1ZMacNvLoyJJiNfcvg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="./js/tasks.js"></script>
+<script type="module" src="./js/tasks.js"></script>
 <script src="./js/dark-mode.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {

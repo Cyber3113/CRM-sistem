@@ -400,15 +400,37 @@ select{
 
 .modal-footer{
     justify-content: space-between;
+    border-top: none;
 }
+
 .modal-content{
     padding: 20px;
     margin: auto 50px;
     width: 400px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
+
+.modal-header {
+    background-color: var(--main-color);
+    color: white;
+    border-bottom: none;
+}
+
 .modal-body{
     text-align: start;
 }
+
+.modal-footer .btn-secondary {
+    background-color: #6c757d;
+    border: none;
+}
+
+.modal-footer .btn-danger {
+    background-color: #dc3545;
+    border: none;
+}
+
 @media (max-width: 800px) {
     #sidebar {
         width: 0;

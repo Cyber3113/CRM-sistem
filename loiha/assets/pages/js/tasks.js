@@ -1,12 +1,13 @@
+import {API_URL, getToken} from '../../js/CONSTANTS.js'
+
 let data = []
 
 
 // get data from server
-const token = localStorage.getItem('token');
 const getTaskData = () => {
-    axios.get('http://127.0.0.1:8000/api/task/', {
+    axios.get(`${API_URL}task/`, {
         headers: {
-            "Authorization": `Bearer ${token}`
+            "Authorization": `Bearer ${getToken()}`
         }
     }).then(response => {
         console.log('response', response.data.results);
@@ -20,18 +21,9 @@ const getTaskData = () => {
 getTaskData();
 
 
-function renderTable(items) {
+function renderTable(items = []) {
     const tbody = document.querySelector('.tbody-tasks');
-    tbody.innerHTML = '';
-    console.log(items.length);
-    if (items.length === 0) {
-        const row = document.createElement('tr');
-        row.innerHTML = `
-            <td colspan="10" class="text-center">No data found</td>
-        `;
-        tbody.appendChild(row);
-        return;
-    }
+    tbody.innerHTML = ''; // Clear the table before rendering
 
     items.forEach(item => {
         const row = document.createElement('tr');
@@ -48,8 +40,91 @@ function renderTable(items) {
             <td>${item.issued_date}</td>
             <td>${item.return_date}</td>
             <td>${item.task}</td>
+            <td>
+                <button class="btn btn-warning btn-sm edit-btn" data-id="${item.id}">
+                    <i class="fas fa-pen"></i>
+                </button>
+            </td>
+            <td>
+                <button class="btn btn-info btn-sm view-btn" data-id="${item.id}">
+                    <i class="fas fa-eye"></i>
+                </button>
+            </td>
         `;
         tbody.appendChild(row);
+    });
+
+    // Attach event listeners for edit buttons
+    document.querySelectorAll('.edit-btn').forEach(button => {
+        button.addEventListener('click', (e) => {
+            const taskId = e.target.closest('button').dataset.id;
+            const task = items.find(item => item.id == taskId);
+            if (task) openEditModal(task);
+        });
+    });
+
+    // Attach event listeners for view buttons
+    document.querySelectorAll('.view-btn').forEach(button => {
+        button.addEventListener('click', (e) => {
+            const taskId = e.target.closest('button').dataset.id;
+            const task = items.find(item => item.id == taskId);
+            if (task) openViewModal(task);
+        });
+    });
+}
+
+function openEditModal(task) {
+    // Populate modal fields with task data
+    document.getElementById('editNameInput').value = task.name;
+    document.getElementById('editPositionInput').value = task.position;
+    document.getElementById('editPhoneInput').value = task.phone_number;
+    document.getElementById('editPriceInput').value = task.price;
+    document.getElementById('editBranchInput').value = task.branch;
+    document.getElementById('editIssuedDateInput').value = task.issued_date;
+    document.getElementById('editReturnDateInput').value = task.return_date;
+    document.getElementById('editTaskInput').value = task.task;
+
+    // Show the modal
+    const modal = new bootstrap.Modal(document.getElementById('editTaskModal'));
+    modal.show();
+
+    // Attach save button functionality
+    document.getElementById('saveEditBtn').onclick = () => saveEdit(task.id);
+}
+
+function openViewModal(task) {
+    // Populate modal fields with task data
+    document.getElementById('taskTitle').innerText = `Mavzu: ${task.name}`;
+    document.getElementById('taskDetails').innerText = `Ma'lumot: ${task.task}`;
+
+    // Show the modal
+    const modal = new bootstrap.Modal(document.getElementById('viewTaskModal'));
+    modal.show();
+}
+
+function saveEdit(taskId) {
+    const updatedTask = {
+        name: document.getElementById('editNameInput').value,
+        position: document.getElementById('editPositionInput').value,
+        phone_number: document.getElementById('editPhoneInput').value,
+        price: document.getElementById('editPriceInput').value,
+        branch: document.getElementById('editBranchInput').value,
+        issued_date: document.getElementById('editIssuedDateInput').value,
+        return_date: document.getElementById('editReturnDateInput').value,
+        task: document.getElementById('editTaskInput').value,
+    };
+
+    axios.put(`http://127.0.0.1:8000/api/task/${taskId}/`, updatedTask, {
+        headers: {
+            "Authorization": `Bearer ${token}`
+        }
+    }).then(response => {
+        console.log('Task updated:', response.data);
+        getTaskData(); // Refresh the table
+        const modal = bootstrap.Modal.getInstance(document.getElementById('editTaskModal'));
+        modal.hide();
+    }).catch(error => {
+        console.error('Error updating task:', error);
     });
 }
 

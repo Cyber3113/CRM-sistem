@@ -1,5 +1,7 @@
-loginForm = document.querySelector('.login-form');
-alertMessage = document.querySelector('.alert');
+import {API_URL} from "./CONSTANTS.js"
+
+let loginForm = document.querySelector('.login-form');
+let alertMessage = document.querySelector('.alert');
 alertMessage.style.display = 'none';
 loginForm.addEventListener('submit', function (e) {
     alertMessage.style.display = 'block';
@@ -15,7 +17,7 @@ loginForm.addEventListener('submit', function (e) {
     }
     console.log(data)
     console.log('login submitted');
-    axios.post('http://127.0.0.1:8000/api/auth/login/', data).then(response => {
+    axios.post(`${API_URL}auth/login/`, data).then(response => {
         console.log('response data', response.data);
         alertMessage.style.display = 'block';
         alertMessage.classList.remove('alert-danger');

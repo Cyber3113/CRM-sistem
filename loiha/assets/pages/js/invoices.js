@@ -1,63 +1,57 @@
-import {API_URL, getToken} from "../../../assets/js/CONSTANTS.js"
+import {API_URL, getToken} from '../../js/CONSTANTS.js'
 
 let data = []
+const token = localStorage.getItem('token')
 
-
-const getPartnerData = () => {
-    const token = localStorage.getItem('token')
-    if (!token) {
-        window.location.href = '../../../login.html'
-        return
-    }
-    axios.get(`${API_URL}partner/`, {
-        headers: {
-            "Authorization": "Bearer " + getToken()
-        }
-    }).then((response) => {
-        console.log(response.data?.results)
-        data = response.data?.results
-        renderTable(data)
-    }).catch((error) => {
+// get data from server
+const getData = () => {
+    try {
+        axios.get(`${API_URL}worker/`, {
+            headers: {
+                "Authorization": "Bearer " + getToken()
+            }
+        }).then(res => {
+            console.log(res.data.results)
+            data = res.data.results;
+            renderTable(data);
+        }).catch(err => {
+            console.log(err)
+        })
+    } catch (error) {
         console.log(error)
-    })
+    }
 }
-
-getPartnerData()
-
+getData()
 
 function renderTable(items = []) {
     const tbody = document.querySelector('tbody');
     tbody.innerHTML = '';
+    console.log(items.length);
     if (items.length === 0) {
         const row = document.createElement('tr');
         row.innerHTML = `
-            <td colspan="7" class="text-center">Ma'lumot topilmadi</td>
+            <td colspan="9" class="text-center">Ma'lumot topilmadi</td>
         `;
         tbody.appendChild(row);
         return;
     }
     items.forEach(item => {
         const row = document.createElement('tr');
-        row.addEventListener('dblclick', () => showRowData(item));
-        row.style.cursor = 'pointer';
         row.innerHTML = `
             <td class="checkbox-cell">
                 <input type="checkbox" class="form-check-input row-checkbox" data-id="${item.id}">
             </td>
             <td>${item.id}</td>
             <td>${item.name}</td>
-            <td>${item.contract_number}</td>
             <td>${item.phone_number}</td>
-            <td>${item.contract_number}</td>
-            <td>${item.partner_time}</td>
+            <td>${item.profit}</td>
+            <td>${item.damage}</td>
+            <td>${item.total_price}</td>
+            <td>Faol</td>
+            <td>Edit</td>
         `;
         tbody.appendChild(row);
     });
-}
-
-// show row data on double click
-const showRowData = (e) => {
-    console.log(e)
 }
 
 document.getElementById('createBtn').addEventListener('click', () => {
@@ -72,6 +66,7 @@ let currentPage = 1;
 let sortedData = [...data];
 let currentSort = {column: '', direction: 'asc'};
 let selectedRows = new Set();
+
 
 function renderPagination() {
     const totalPages = Math.ceil(sortedData.length / itemsPerPage);
@@ -115,15 +110,15 @@ function handleSelectAll(e) {
     updateDeleteButton();
 }
 
-function updateSelectAllCheckbox() {
-    const selectAllCheckbox = document.getElementById('selectAll');
-    const start = (currentPage - 1) * itemsPerPage;
-    const end = start + itemsPerPage;
-    const currentPageItems = sortedData.slice(start, end);
-    const allSelected = currentPageItems.every(item => selectedRows.has(item.id));
-
-    selectAllCheckbox.checked = allSelected;
-}
+// function updateSelectAllCheckbox() {
+//     const selectAllCheckbox = document.getElementById('selectAll');
+//     const start = (currentPage - 1) * itemsPerPage;
+//     const end = start + itemsPerPage;
+//     const currentPageItems = sortedData.slice(start, end);
+//     const allSelected = currentPageItems.every(item => selectedRows.has(item.id));
+//
+//     selectAllCheckbox.checked = allSelected;
+// }
 
 function updateDeleteButton() {
     const deleteBtn = document.getElementById('deleteBtn');

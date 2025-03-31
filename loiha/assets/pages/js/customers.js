@@ -1,3 +1,5 @@
+import {API_URL, getToken} from '../../js/CONSTANTS.js'
+
 const columns = [
     {name: 'ID', data: 'id', sortable: true},
     {name: 'Ism', data: 'name', sortable: true},
@@ -15,25 +17,31 @@ let currentPage = 1;
 let sortedData = [...tableData];
 let currentSort = {column: '', direction: 'asc'};
 let selectedRows = new Set();
-let searchText = ''
+let searchText = '';
+let selectedCustomerId = null;
 
 const showRowDataModal = (rowData) => {
     console.log('showRowDataModal', rowData);
 }
 
+// Attach event listeners to dynamically created buttons
+function attachRowEventListeners() {
+    document.querySelectorAll('.edit-btn').forEach(btn => btn.addEventListener('click', editRow));
+    document.querySelectorAll('.delete-row-btn').forEach(btn => btn.addEventListener('click', deleteSingleRow));
+}
+
 // Data
 function renderTable(items) {
-    const tbody = document.querySelector('tbody');
+    const tbody = document.querySelector('.table-body');
     tbody.innerHTML = '';
+
+    if (items.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="6" class="text-center">Mijozlar topilmadi</td></tr>';
+        return;
+    }
 
     items.forEach(item => {
         const row = document.createElement('tr');
-
-        row.addEventListener('dblclick', () => {
-            showRowDataModal(item);
-        })
-        row.style.cursor = 'pointer';
-
         row.innerHTML = `
             <td><input type="checkbox" class="form-check-input row-checkbox" data-id="${item.id}" ${selectedRows.has(item.id) ? 'checked' : ''}></td>
             <td>${item.id}</td>
@@ -41,17 +49,18 @@ function renderTable(items) {
             <td>${item.phone_number}</td>
             <td>${item.email}</td>
             <td>
-                <button class="btn btn-sm btn-primary me-1 edit-btn" data-id="${item.id}"><i class="fas fa-edit"></i></button>
-                <button class="btn btn-sm btn-danger delete-row-btn" data-id="${item.id}"><i class="fas fa-trash"></i></button>
+                <button class="btn btn-sm btn-primary me-1 edit-btn" data-id="${item.id}">
+                    <i class="fas fa-edit"></i>
+                </button>
+                <button class="btn btn-sm btn-danger delete-row-btn" data-id="${item.id}">
+                    <i class="fas fa-trash"></i>
+                </button>
             </td>
         `;
         tbody.appendChild(row);
     });
 
-    document.querySelectorAll('.row-checkbox').forEach(cb => cb.addEventListener('change', handleRowSelect));
-    document.querySelectorAll('.delete-row-btn').forEach(btn => btn.addEventListener('click', deleteSingleRow));
-    document.querySelectorAll('.edit-btn').forEach(btn => btn.addEventListener('click', editRow));
-
+    attachRowEventListeners();
     updateSelectAllCheckbox();
 }
 
@@ -117,19 +126,60 @@ function handleDelete() {
     updateDeleteButton();
 }
 
+// Open delete modal
 function deleteSingleRow(e) {
-    const id = Number(e.target.closest('button').dataset.id);
-    sortedData = sortedData.filter(item => item.id !== id);
-    tableData.splice(data.findIndex(item => item.id === id), 1);
-    selectedRows.delete(id);
-    updateTable();
+    selectedCustomerId = Number(e.target.closest('button').dataset.id);
+    const deleteModal = new bootstrap.Modal(document.getElementById('deleteModal'));
+    deleteModal.show();
 }
 
+// Confirm delete
+document.getElementById('confirmDeleteBtn').addEventListener('click', () => {
+    axios.delete(`${API_URL}customer/${selectedCustomerId}/`, {
+        headers: {
+            "Authorization": `Bearer ${getToken()}`
+        }
+    }).then(() => {
+        console.log('Deleted customer:', selectedCustomerId);
+        getCustomers();
+        bootstrap.Modal.getInstance(document.getElementById('deleteModal')).hide();
+    }).catch(error => {
+        console.error('Error deleting customer:', error.response?.data || error.message);
+    });
+}
+
+// Open edit modal
 function editRow(e) {
-    const id = Number(e.target.closest('button').dataset.id);
-    const item = tableData.find(item => item.id === id);
-    alert(`Edit qilish: ${item.name} (${item.phone_number})`);
-    // Shu yerga modal ochish va ma'lumotni tahrirlash logikasini qo‘shish mumkin
+    selectedCustomerId = Number(e.target.closest('button').dataset.id);
+    const customer = tableData.find(item => item.id === selectedCustomerId);
+    document.getElementById('editName').value = customer.name;
+    document.getElementById('editPhone').value = customer.phone_number;
+    document.getElementById('editEmail').value = customer.email;
+
+    const editModal = new bootstrap.Modal(document.getElementById('editModal'));
+    editModal.show();
+}
+
+// Handle edit form submission
+document.getElementById('editCustomerForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const updatedCustomer = {
+        name: document.getElementById('editName').value,
+        phone_number: document.getElementById('editPhone').value,
+        email: document.getElementById('editEmail').value,
+    };
+
+    axios.put(`${API_URL}customer/${selectedCustomerId}/`, updatedCustomer, {
+        headers: {
+            "Authorization": `Bearer ${getToken()}`
+        }
+    }).then(response => {
+        console.log('Updated:', response.data);
+        getCustomers();
+        bootstrap.Modal.getInstance(document.getElementById('editModal')).hide();
+    }).catch(error => {
+        console.error('Error updating customer:', error.response?.data || error.message);
+    });
 }
 
 function sortData(column) {
@@ -179,21 +229,22 @@ document.querySelectorAll('th[data-sort]').forEach(th =>
 );
 document.getElementById('selectAll').addEventListener('change', handleSelectAll);
 document.getElementById('deleteBtn').addEventListener('click', handleDelete);
+
+// Fix for "Yaratish" button modal
 document.getElementById('createBtn').addEventListener('click', () => {
-    const modal = new bootstrap.Modal(document.getElementById('createModal'));
-    modal.show();
+    const createModal = new bootstrap.Modal(document.getElementById('createModal'));
+    createModal.show();
 });
 
 // Modal form submit (optional)
 const customerForm = document.querySelector('.customer-form-modal');
 const organization_name = document.querySelector('#organization_name');
-const accessToken = localStorage.getItem('token');
 
 // Get organizations
 const getOrganization = () => {
-    axios.get('http://127.0.0.1:8000/api/organization/', {
+    axios.get(API_URL + 'organization/', {
         headers: {
-            "Authorization": `Bearer ${accessToken}`
+            "Authorization": `Bearer ${getToken()}`
         }
     }).then(response => {
         console.log(response.data?.results)
@@ -212,9 +263,9 @@ getOrganization();
 // Get customers
 const getCustomers = () => {
     try {
-        axios.get(`http://127.0.0.1:8000/api/customer?search=${searchText}`, {
+        axios.get(`${API_URL}customer?search=${searchText}`, {
             headers: {
-                "Authorization": `Bearer ${accessToken}`
+                "Authorization": `Bearer ${getToken()}`
             }
         }).then(response => {
             console.log('datas', response.data.results)
@@ -245,9 +296,9 @@ customerForm.addEventListener('submit', e => {
         for (let key in customer) {
             formData.append(key, customer[key]);
         }
-        axios.post('http://127.0.0.1:8000/api/customer/', formData, {
+        axios.post(`${API_URL}customer/`, formData, {
             headers: {
-                "Authorization": `Bearer ${accessToken}`
+                "Authorization": `Bearer ${getToken()}`
             }
         }).then((response) => {
             console.log(response);

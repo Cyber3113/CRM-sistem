@@ -137,7 +137,7 @@
                 <input type="text" class="form-control" id="searchInput" placeholder="Qidirish...">
             </div>
             <div class="d-flex gap-2">
-                <button class="btn btn-primary" id="createBtn">+ <b>Yaratish</b></button>
+                <button class="btn btn-primary" id="createBtn" data-bs-toggle="modal" data-bs-target="#createModal">+ <b>Yaratish</b></button>
                 <button class="btn btn-danger delete-btn" id="deleteBtn"><i class="fa-solid fa-trash"></i></button>
             </div>
         </div>
@@ -152,11 +152,31 @@
                     <th data-sort="name">Ism ↕</th>
                     <th data-sort="phone">Telefon ↕</th>
                     <th data-sort="email">Email ↕</th>
-                    <th data-sort="actions">Amallar</th>
+                    <th>Amallar</th>
                 </tr>
                 </thead>
                 <tbody class="table-body">
-
+                    <!-- Example row -->
+                    <tr>
+                        <td class="checkbox-cell">
+                            <input type="checkbox" class="form-check-input row-checkbox">
+                        </td>
+                        <td>1</td>
+                        <td>Viktor</td>
+                        <td>+998900000000</td>
+                        <td>crm@gmail.com</td>
+                        <td>
+                            <button class="btn btn-sm btn-info me-1 view-btn" data-bs-toggle="modal" data-bs-target="#viewModal">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="btn btn-sm btn-primary me-1 edit-btn" data-bs-toggle="modal" data-bs-target="#editModal">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-sm btn-danger delete-row-btn" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -164,7 +184,7 @@
     </div>
 
 
-    <div class="modal fade" id="createModal" tabindex="-1" style="display: none;" aria-hidden="true">
+    <div class="modal fade" id="createModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <form class="customer-form-modal">
@@ -214,6 +234,79 @@
         </div>
     </div>
 
+    <!-- Edit Modal -->
+    <div class="modal fade" id="editModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form id="editCustomerForm">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Mijozni tahrirlash</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label class="form-label" for="editName">Ism Familiya</label>
+                            <input type="text" name="name" class="form-control" id="editName" placeholder="Viktor">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="editPhone">Telefon</label>
+                            <input type="number" name="phone_number" class="form-control" id="editPhone" placeholder="+998900000000">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="editEmail">Email</label>
+                            <input type="email" name="email" class="form-control" id="editEmail" placeholder="crm@gmail.com">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bekor qilish</button>
+                        <button type="submit" class="btn btn-primary">Saqlash</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Mijozni o'chirish</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Haqiqatan ham ushbu mijozni o'chirmoqchimisiz?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bekor qilish</button>
+                    <button type="button" class="btn btn-danger" id="confirmDeleteBtn">O'chirish</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- View Modal -->
+    <div class="modal fade" id="viewModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Mijoz ma'lumotlari</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>ID:</strong> <span id="viewId">1</span></p>
+                    <p><strong>Ism Familiya:</strong> <span id="viewName">Viktor</span></p>
+                    <p><strong>Telefon:</strong> <span id="viewPhone">+998900000000</span></p>
+                    <p><strong>Email:</strong> <span id="viewEmail">crm@gmail.com</span></p>
+                    <p><strong>Tashkilot nomi:</strong> <span id="viewOrganization">Tashkilot 1</span></p>
+                    <p><strong>Hamkorlik:</strong> <span id="viewPartnership">1 yil</span></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Yopish</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>
 
@@ -224,7 +317,7 @@
         integrity="sha512-b+nQTCdtTBIRIbraqNEwsjB6UvL3UEMkXnhzd8awtCYh0Kcsjl9uEgwVFVbhoj3uu1DO1ZMacNvLoyJJiNfcvg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="./js/customers.js"></script>
+<script type="module" src="./js/customers.js"></script>
 <script src="./js/dark-mode.js"></script>
 
 

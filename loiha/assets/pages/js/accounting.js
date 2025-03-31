@@ -1,12 +1,14 @@
+import {API_URL, getToken} from '../../../assets/js/CONSTANTS.js'
+
 let data = []
 const token = localStorage.getItem('token')
 
 // get data from server
 const getData = () => {
     try {
-        axios.get('http://127.0.0.1:8000/api/bugalteria/', {
+        axios.get(`${API_URL}bugalteria/`, {
             headers: {
-                "Authorization": "Bearer " + token
+                "Authorization": "Bearer " + getToken()
             }
         }).then(res => {
             console.log(res.data.results)
