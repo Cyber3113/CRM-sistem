@@ -202,7 +202,8 @@ updateTable();
 
 // create data to server
 const createForm = document.getElementById('createForm');
-const createModal = document.getElementsByClassName('modal');
+const createModalEl = document.getElementById('createModal');
+const createModal = new bootstrap.Modal(createModalEl);
 createForm.addEventListener('submit', (e) => {
     try {
         e.preventDefault();
@@ -225,7 +226,7 @@ createForm.addEventListener('submit', (e) => {
             console.log(res.data);
             alert("Ma'lumot qo'shildi!");
             createForm.reset();
-            // createModal('hide')
+            document.querySelector("#createModal .btn-close").click();
             console.log(createModal)
             getData();
         }).catch(err => {
