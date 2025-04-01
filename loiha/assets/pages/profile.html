@@ -48,79 +48,112 @@
 
 <!-- Sidebar -->
 <div class="vh-100 d-flex flex-column" id="sidebar">
-
     <a class="navbar-logos" href="./index.html">
-        <img src="../images/milliycrm-logo.png" alt="logo" width="130px">
+        <img src="../../assets/images/milliycrm-logo.png" alt="logo" width="3248">
     </a>
-
     <ul class="nav flex-column flex-grow-1">
         <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Dashboard">
             <a href="../../index.html" class="nav-link">
                 <i class="fa-solid fa-chart-simple"></i> <span style="margin-left: 10px;"> Dashboard</span>
             </a>
         </li>
-        <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Buxgalteriya">
-            <a href="../pages/accounting.html" class="nav-link">
+        <li class="nav-item accordion-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Buxgalteriya"
+            onclick="{window.location.href = '../../assets/pages/accounting.html'}">
+            <a href="#" class="nav-link accordion-toggle" data-bs-toggle="collapse" data-bs-target="#accounting-submenu">
                 <i class="fa-solid fa-calculator"></i> <span style="margin-left: 10px;"> Buxgalteriya</span>
+                <i class="fa-solid fa-chevron-down ms-auto"></i>
             </a>
+            <ul class="nav flex-column ms-3 collapse" id="accounting-submenu">
+                <li class="nav-item">
+                    <a href="../../assets/pages/invoices.html" class="nav-link">
+                        <i class="fa-solid fa-file-invoice"></i> <span style="margin-left: 10px;"> Ishchilar</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="../../assets/pages/reports.html" class="nav-link">
+                        <i class="fa-solid fa-chart-pie"></i> <span style="margin-left: 10px;"> Filiallar</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="../../assets/pages/voices.html" class="nav-link">
+                        <i class="fa-solid fa-microphone"></i> <span style="margin-left: 10px;"> Barchasi</span>
+                    </a>
+                </li>
+            </ul>
         </li>
-        <li class="nav-item">
-            <a href="../pages/debts.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="right"
-               title="Qarzlar">
+        <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Qarzlar">
+            <a href="../pages/debts.html" class="nav-link">
                 <i class="fa-solid fa-money-bill-transfer"></i> <span style="margin-left: 10px;"> Qarzlar</span>
             </a>
         </li>
-        <li class="nav-item">
-            <a href="../pages/tasks.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="right"
-               title="Vazifalar">
+        <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Vazifalar">
+            <a href="../pages/tasks.html" class="nav-link">
                 <i class="fa-solid fa-list-check"></i> <span style="margin-left: 10px;"> Vazifalar</span>
             </a>
         </li>
-        <li class="nav-item">
-            <a href="../pages/products.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="end"
-               title="Mahsulotlar">
+        <li class="nav-item accordion-item" data-bs-toggle="tooltip" data-bs-placement="end" title="Mahsulotlar">
+            <a href="#" class="nav-link accordion-toggle" data-bs-toggle="collapse" data-bs-target="#products-submenu">
                 <i class="fa-solid fa-shop"></i><span style="margin-left: 10px;"> Mahsulotlar</span>
+                <i class="fa-solid fa-chevron-down ms-auto"></i>
             </a>
+            <ul class="nav flex-column ms-3 collapse" id="products-submenu">
+                <li class="nav-item">
+                    <a href="../pages/products.html" class="nav-link">
+                        <i class="fa-solid fa-box"></i><span style="margin-left: 10px;"> Barcha Mahsulotlar</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="../pages/register.html" class="nav-link">
+                        <i class="fa-solid fa-pen"></i><span style="margin-left: 10px;"> Register</span>
+                    </a>
+                </li>
+            </ul>
         </li>
-        <li class="nav-item">
-            <a href="../pages/customers.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="end"
-               title="Mijozlar">
+        <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="end" title="Mijozlar">
+            <a href="../pages/customers.html" class="nav-link">
                 <i class="fa fa-users"></i><span style="margin-left: 10px;"> Mijozlar</span>
             </a>
         </li>
-        <li class="nav-item">
-            <a href="../pages/partners.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="end"
-               title="Hamkorlar">
+        <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="end" title="Hamkorlar">
+            <a href="../pages/partners.html" class="nav-link">
                 <i class="fa-solid fa-user-group"></i><span style="margin-left: 10px;"> Hamkorlar</span>
             </a>
         </li>
-        <li class="nav-item">
-            <a href="../pages/payment.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="end"
-               title="To'lovlar">
+        <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="end" title="To'lovlar">
+            <a href="../pages/payment.html" class="nav-link">
                 <i class="fa-solid fa-wallet"></i><span style="margin-left: 10px;"> To'lovlar</span>
             </a>
         </li>
-        <li class="nav-item">
-            <a href="../pages/sale.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="end"
-               title="Sotuv">
-               <i class="fa-solid fa-tag"></i><span style="margin-left: 10px;">Sotuv</span>
+        <li class="nav-item accordion-item" data-bs-toggle="tooltip" data-bs-placement="end" title="Sotuv">
+            <a href="#" class="nav-link accordion-toggle" data-bs-toggle="collapse" data-bs-target="#sales-submenu">
+                <i class="fa-solid fa-tag"></i><span style="margin-left: 10px;"> Sotuv</span>
+                <i class="fa-solid fa-chevron-down ms-auto"></i>
             </a>
+            <ul class="nav flex-column ms-3 collapse" id="sales-submenu">
+                <li class="nav-item">
+                    <a href="../pages/all-sales.html" class="nav-link">
+                        <i class="fa-solid fa-list"></i><span style="margin-left: 10px;"> Hammasi</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="../pages/sell.html" class="nav-link">
+                        <i class="fa-solid fa-cart-plus"></i><span style="margin-left: 10px;"> Sotish</span>
+                    </a>
+                </li>
+            </ul>
         </li>
-        <li class="nav-item">
-            <a href="../pages/popular.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="end"
-               title="Ommabop">
+        <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="end" title="Ommabop">
+            <a href="../pages/popular.html" class="nav-link">
                <i class="fa-solid fa-user-check"></i><span style="margin-left: 10px;">Ommabop</span>
             </a>
         </li>
-        <li class="nav-item">
-            <a href="../pages/chat.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="end"
-               title="Aloqa">
+        <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="end" title="Aloqa">
+            <a href="../pages/chat.html" class="nav-link">
                <i class="fa-solid fa-phone-volume"></i><span style="margin-left: 10px;"> Aloqa</span>
             </a>
         </li>
-        <li class="nav-item">
-            <a href="/loiha/login.html" class="nav-link text-danger" data-target="#exitModal" data-bs-toggle="tooltip"
-               title="Hisobdan chiqish">
+        <li class="nav-item" data-bs-toggle="tooltip" title="Hisobdan chiqish">
+            <a href="/loiha/login.html" class="nav-link text-danger" data-target="#exitModal">
                 <i class="fa-solid fa-right-from-bracket"></i> <span style="margin-left: 10px;"> Chiqish</span>
             </a>
         </li>

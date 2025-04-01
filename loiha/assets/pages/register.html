@@ -65,10 +65,17 @@
                 <i class="fa-solid fa-chart-simple"></i> <span style="margin-left: 10px;"> Dashboard</span>
             </a>
         </li>
-        <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="right" title="Buxgalteriya">
-            <a href="../pages/accounting.html" class="nav-link">
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#accountingCollapse" role="button" aria-expanded="false" aria-controls="accountingCollapse">
                 <i class="fa-solid fa-calculator"></i> <span style="margin-left: 10px;"> Buxgalteriya</span>
             </a>
+            <div class="collapse" id="accountingCollapse">
+                <ul class="nav flex-column ms-3">
+                    <li class="nav-item"><a href="../pages/accounting1.html" class="nav-link">Item 1</a></li>
+                    <li class="nav-item"><a href="../pages/accounting2.html" class="nav-link">Item 2</a></li>
+                    <li class="nav-item"><a href="../pages/accounting3.html" class="nav-link">Item 3</a></li>
+                </ul>
+            </div>
         </li>
         <li class="nav-item">
             <a href="../pages/debts.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="right"
@@ -83,10 +90,16 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="../pages/products.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="end"
-               title="Mahsulotlar">
+            <a class="nav-link" data-bs-toggle="collapse" href="#productsCollapse" role="button" aria-expanded="false" aria-controls="productsCollapse">
                 <i class="fa-solid fa-shop"></i><span style="margin-left: 10px;"> Mahsulotlar</span>
             </a>
+            <div class="collapse" id="productsCollapse">
+                <ul class="nav flex-column ms-3">
+                    <li class="nav-item"><a href="../pages/products1.html" class="nav-link">Item 1</a></li>
+                    <li class="nav-item"><a href="../pages/products2.html" class="nav-link">Item 2</a></li>
+                    <li class="nav-item"><a href="../pages/products3.html" class="nav-link">Item 3</a></li>
+                </ul>
+            </div>
         </li>
         <li class="nav-item">
             <a href="../pages/customers.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="end"
@@ -107,10 +120,16 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="../pages/sale.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="end"
-               title="Sotuv">
-               <i class="fa-solid fa-tag"></i><span style="margin-left: 10px;">Sotuv</span>
+            <a class="nav-link" data-bs-toggle="collapse" href="#salesCollapse" role="button" aria-expanded="false" aria-controls="salesCollapse">
+                <i class="fa-solid fa-tag"></i><span style="margin-left: 10px;"> Sotuv</span>
             </a>
+            <div class="collapse" id="salesCollapse">
+                <ul class="nav flex-column ms-3">
+                    <li class="nav-item"><a href="../pages/sale1.html" class="nav-link">Item 1</a></li>
+                    <li class="nav-item"><a href="../pages/sale2.html" class="nav-link">Item 2</a></li>
+                    <li class="nav-item"><a href="../pages/sale3.html" class="nav-link">Item 3</a></li>
+                </ul>
+            </div>
         </li>
         <li class="nav-item">
             <a href="../pages/popular.html" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="end"
@@ -143,7 +162,7 @@
             <div class="d-flex gap-2" style="width: 50%;">
                 <input type="text" class="form-control" id="searchInput" placeholder="Qidirish..." style="flex: 2; width: 17%;">
                 <!-- Dropdown 1 -->
-                <select class="form-select" id="dropdown1" style="width: 13%;">
+                <select class="form-select" id="dropdown1" style="width: 20%;">
                     <option value="item1">Item 1</option>
                     <option value="item2">Item 2</option>
                     <option value="item3">Item 3</option>
@@ -151,7 +170,7 @@
                     <option value="item5">Item 5</option>
                 </select>
                 <!-- Dropdown 2 -->
-                <select class="form-select" id="dropdown2" style="width: 13%;">
+                <select class="form-select" id="dropdown2" style="width: 20%;">
                     <option value="item1">Item 1</option>
                     <option value="item2">Item 2</option>
                     <option value="item3">Item 3</option>
@@ -159,7 +178,7 @@
                     <option value="item5">Item 5</option>
                 </select>
                 <!-- Dropdown 3 -->
-                <select class="form-select" id="dropdown3" style="width: 13%;">
+                <select class="form-select" id="dropdown3" style="width: 20%;">
                     <option value="item1">Item 1</option>
                     <option value="item2">Item 2</option>
                     <option value="item3">Item 3</option>
@@ -187,7 +206,7 @@
                     <th data-sort="damage">Zarar ↕</th>
                     <th data-sort="income">Umumiy aylanma ↕</th>
                     <th data-sort="status">Status ↕</th>
-                    <th>Edit</th>
+                    <th>Amallar</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -200,7 +219,11 @@
                         <td>200,000</td>
                         <td>1,200,000</td>
                         <td>Active</td>
-                        <td><button class="btn btn-sm btn-primary">Edit</button></td>
+                        <td>
+                            <button class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#viewModal1"><i class="fa-solid fa-eye"></i></button>
+                            <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#editModal1"><i class="fa-solid fa-pen"></i></button>
+                            <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal1"><i class="fa-solid fa-trash"></i></button>
+                        </td>
                     </tr>
                     <tr>
                         <td class="checkbox-cell"><input type="checkbox" class="form-check-input"></td>
@@ -211,7 +234,11 @@
                         <td>300,000</td>
                         <td>2,300,000</td>
                         <td>Inactive</td>
-                        <td><button class="btn btn-sm btn-primary">Edit</button></td>
+                        <td>
+                            <button class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#viewModal2"><i class="fa-solid fa-eye"></i></button>
+                            <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#editModal2"><i class="fa-solid fa-pen"></i></button>
+                            <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal2"><i class="fa-solid fa-trash"></i></button>
+                        </td>
                     </tr>
                     <tr>
                         <td class="checkbox-cell"><input type="checkbox" class="form-check-input"></td>
@@ -222,7 +249,11 @@
                         <td>400,000</td>
                         <td>3,400,000</td>
                         <td>Pending</td>
-                        <td><button class="btn btn-sm btn-primary">Edit</button></td>
+                        <td>
+                            <button class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#viewModal3"><i class="fa-solid fa-eye"></i></button>
+                            <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#editModal3"><i class="fa-solid fa-pen"></i></button>
+                            <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal3"><i class="fa-solid fa-trash"></i></button>
+                        </td>
                     </tr>
                     <tr>
                         <td class="checkbox-cell"><input type="checkbox" class="form-check-input"></td>
@@ -233,7 +264,11 @@
                         <td>500,000</td>
                         <td>4,500,000</td>
                         <td>Active</td>
-                        <td><button class="btn btn-sm btn-primary">Edit</button></td>
+                        <td>
+                            <button class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#viewModal4"><i class="fa-solid fa-eye"></i></button>
+                            <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#editModal4"><i class="fa-solid fa-pen"></i></button>
+                            <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal4"><i class="fa-solid fa-trash"></i></button>
+                        </td>
                     </tr>
                     <tr>
                         <td class="checkbox-cell"><input type="checkbox" class="form-check-input"></td>
@@ -244,7 +279,11 @@
                         <td>600,000</td>
                         <td>5,600,000</td>
                         <td>Inactive</td>
-                        <td><button class="btn btn-sm btn-primary">Edit</button></td>
+                        <td>
+                            <button class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#viewModal5"><i class="fa-solid fa-eye"></i></button>
+                            <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#editModal5"><i class="fa-solid fa-pen"></i></button>
+                            <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal5"><i class="fa-solid fa-trash"></i></button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -252,53 +291,66 @@
         <div class="p-3 border-top d-flex justify-content-center" id="pagination"></div>
     </div>
 
-
-    <div class="modal fade" id="createModal" tabindex="-1" aria-hidden="true">
+    <!-- View Modal -->
+    <div class="modal fade" id="viewModal1" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Yangi ma'lumot qo'shish</h5>
+                    <h5 class="modal-title">Ko'rish</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="input-control">
+                    <p>Kompaniya nomi: Company A</p>
+                    <p>Telefon raqam: +998901234567</p>
+                    <p>Foyda: 1,000,000</p>
+                    <p>Zarar: 200,000</p>
+                    <p>Umumiy aylanma: 1,200,000</p>
+                    <p>Status: Active</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Yopish</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                       <div>
-                            <div class="mb-3">
-                            <label class="form-label">Kompaniya nomi</label>
-                            <input type="text" class="form-control" id="nameInput" placeholder="Denov">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Telefon raqam</label>
-                            <input type="number" class="form-control" id="phone" placeholder="+998" value="+998">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Foyda</label>
-                            <input type="number" class="form-control" id="DebtNumber" placeholder="1.000.000">
-                        </div>
-                       </div> 
-
-                       <div>
-                            <div class="mb-3">
-                            <label class="form-label">Zarar</label>
-                            <input type="number" class="form-control" id="receiptDay" placeholder="1.000.000">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Umumiy aylanma</label>
-                            <input type="number" class="form-control" id="returnDay" placeholder="1.000.000">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Status</label>
-                            <select class="form-control" id="statusSelect">
-                                <option value="active">Active</option>
-                                <option value="inactive">Inactive</option>
-                                <option value="pending">Pending</option>
-                            </select>
-                        </div>
-                       </div>
+    <!-- Edit Modal -->
+    <div class="modal fade" id="editModal1" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Tahrirlash</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">Kompaniya nomi</label>
+                        <input type="text" class="form-control" value="Company A">
                     </div>
-                    
-                    
+                    <div class="mb-3">
+                        <label class="form-label">Telefon raqam</label>
+                        <input type="text" class="form-control" value="+998901234567">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Foyda</label>
+                        <input type="number" class="form-control" value="1000000">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Zarar</label>
+                        <input type="number" class="form-control" value="200000">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Umumiy aylanma</label>
+                        <input type="number" class="form-control" value="1200000">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Status</label>
+                        <select class="form-control">
+                            <option value="active" selected>Active</option>
+                            <option value="inactive">Inactive</option>
+                            <option value="pending">Pending</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bekor qilish</button>
@@ -308,8 +360,24 @@
         </div>
     </div>
 
-
-
+    <!-- Delete Modal -->
+    <div class="modal fade" id="deleteModal1" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">O'chirish</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Haqiqatan ham "Company A" kompaniyasini o'chirmoqchimisiz?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bekor qilish</button>
+                    <button type="button" class="btn btn-danger">O'chirish</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     </div>
 

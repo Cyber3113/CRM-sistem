@@ -207,50 +207,62 @@
                     <h5 class="modal-title">Yangi ma'lumot qo'shish</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form id="createForm"></form>
-                <div class="modal-body">
-                    <div class="input-control">
-                        <div>
-                            <div class="mb-3">
-                                <label class="form-label" for="nameInput">Kompaniya nomi</label>
-                                <input type="text" class="form-control" id="nameInput" placeholder="Denov">
+                <form id="createForm">
+                    <div class="modal-body">
+                        <div class="input-control">
+                            <div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="nameInput">Kompaniya nomi</label>
+                                    <input type="text" name="name" class="form-control" id="nameInput"
+                                           placeholder="Denov">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="phone">Telefon raqam</label>
+                                    <input type="number" name="phone_number" class="form-control" id="phone"
+                                           placeholder="+998"
+                                           value="+998">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="DebtNumber">Foyda</label>
+                                    <input type="number" name="profit" class="form-control" id="DebtNumber"
+                                           placeholder="1.000.000">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="income">Daromad</label>
+                                    <input type="number" name="income" class="form-control" id="income"
+                                           placeholder="1.000.000">
+                                </div>
                             </div>
-                            <div class="mb-3">
-                                <label class="form-label" for="phone">Telefon raqam</label>
-                                <input type="number" class="form-control" id="phone" placeholder="+998" value="+998">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label" for="DebtNumber">Foyda</label>
-                                <input type="number" class="form-control" id="DebtNumber" placeholder="1.000.000">
+
+                            <div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="receiptDay">Zarar</label>
+                                    <input type="number" name="damage" class="form-control" id="receiptDay"
+                                           placeholder="1.000.000">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="returnDay">Umumiy aylanma</label>
+                                    <input type="number" name="total_price" class="form-control" id="returnDay"
+                                           placeholder="1.000.000">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="statusSelect">Holat</label>
+                                    <select class="form-control" id="statusSelect">
+                                        <option value="active">Faol</option>
+                                        <option value="inactive">Nofaol</option>
+                                        <option value="pending">Kutilmoqda</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
 
-                        <div>
-                            <div class="mb-3">
-                                <label class="form-label" for="receiptDay">Zarar</label>
-                                <input type="number" class="form-control" id="receiptDay" placeholder="1.000.000">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label" for="returnDay">Umumiy aylanma</label>
-                                <input type="number" class="form-control" id="returnDay" placeholder="1.000.000">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label" for="statusSelect">Holat</label>
-                                <select class="form-control" id="statusSelect">
-                                    <option value="active">Faol</option>
-                                    <option value="inactive">Nofaol</option>
-                                    <option value="pending">Kutilmoqda</option>
-                                </select>
-                            </div>
-                        </div>
+
                     </div>
-
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bekor qilish</button>
-                    <button type="button" class="btn btn-primary">Saqlash</button>
-                </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bekor qilish</button>
+                        <button type="submit" class="btn btn-primary">Saqlash</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

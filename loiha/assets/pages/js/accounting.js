@@ -199,3 +199,41 @@ document.getElementById('selectAll').addEventListener('change', handleSelectAll)
 document.getElementById('deleteBtn').addEventListener('click', handleDelete);
 
 updateTable();
+
+// create data to server
+const createForm = document.getElementById('createForm');
+const createModal = document.getElementsByClassName('modal');
+createForm.addEventListener('submit', (e) => {
+    try {
+        e.preventDefault();
+        const formData = new FormData(createForm);
+        for (let [key, value] of formData.entries()) {
+            formData.set(key, value);
+        }
+        formData.forEach((value, key) => {
+            console.log(key, value);
+        });
+        if (formData.get('name') === '' || formData.get('phone_number') === '' || formData.get('profit') === '' || formData.get('damage') === '' || formData.get('total_price') === '') {
+            alert("Hamma maydon to'ldirilishi shart!");
+            return;
+        }
+        axios.post(`${API_URL}bugalteria/`, formData, {
+            headers: {
+                "Authorization": "Bearer " + getToken()
+            }
+        }).then(res => {
+            console.log(res.data);
+            alert("Ma'lumot qo'shildi!");
+            createForm.reset();
+            // createModal('hide')
+            console.log(createModal)
+            getData();
+        }).catch(err => {
+            console.log(err)
+        })
+        console.log(data);
+    } catch (error) {
+        console.log(error);
+    }
+})
+

@@ -6,6 +6,7 @@ const columns = [
     {name: 'Pozitsiya', data: 'position', sortable: true},
     {name: 'Maaʼlumot', data: 'salary', sortable: true}
 ];
+
 let isLoading = false;
 
 // for loader
@@ -146,7 +147,7 @@ document.getElementById('confirmDeleteBtn').addEventListener('click', () => {
     }).catch(error => {
         console.error('Error deleting customer:', error.response?.data || error.message);
     });
-}
+});
 
 // Open edit modal
 function editRow(e) {
@@ -180,7 +181,7 @@ document.getElementById('editCustomerForm').addEventListener('submit', e => {
     }).catch(error => {
         console.error('Error updating customer:', error.response?.data || error.message);
     });
-}
+});
 
 function sortData(column) {
     if (currentSort.column === column) {
