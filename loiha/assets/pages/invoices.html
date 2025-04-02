@@ -182,12 +182,11 @@
                         <input type="checkbox" class="form-check-input" id="selectAll">
                     </th>
                     <th data-sort="id">ID ↕</th>
-                    <th data-sort="name">Kompaniya nomi ↕</th>
-                    <th data-sort="phone">Telefon raqam ↕</th>
-                    <th data-sort="benefit">Foyda ↕</th>
-                    <th data-sort="damage">Zarar ↕</th>
-                    <th data-sort="income">Umumiy aylanma ↕</th>
-                    <th data-sort="status">Status ↕</th>
+                    <th data-sort="workplace">Kompaniya nomi ↕</th>
+                    <th data-sort="name">Ismi ↕</th>
+                    <th data-sort="phone_number">Telefon raqami ↕</th>
+                    <th data-sort="position">Lavozimi ↕</th>
+                    <th data-sort="price">Ish haqqi ↕</th>
                     <th>Edit</th>
                 </tr>
                 </thead>
@@ -213,34 +212,32 @@
                         <div>
                             <div class="mb-3">
                                 <label class="form-label">Kompaniya nomi</label>
-                                <input type="text" class="form-control" id="nameInput" placeholder="Denov">
+                                <select name="company_name" id="workplace" placeholder="IT Brain", class="form-control">
+                                    <option value="IT Brain">IT Brain</option>
+                                    <option value="MARS IT">MARS IT</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Ism</label>
+                                <input type="text" class="form-control" id="name" placeholder="Bobur" >
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Telefon raqam</label>
                                 <input type="number" class="form-control" id="phone" placeholder="+998" value="+998">
                             </div>
-                            <div class="mb-3">
-                                <label class="form-label">Foyda</label>
-                                <input type="number" class="form-control" id="DebtNumber" placeholder="1.000.000">
-                            </div>
                         </div>
-
                         <div>
                             <div class="mb-3">
-                                <label class="form-label">Zarar</label>
-                                <input type="number" class="form-control" id="receiptDay" placeholder="1.000.000">
+                                <label class="form-label">Email manzil</label>
+                                <input type="email" class="form-control" id="email" placeholder="admin@gmail.com">
                             </div>
                             <div class="mb-3">
-                                <label class="form-label" for="returnDay">Umumiy aylanma</label>
-                                <input type="number" class="form-control" id="returnDay" placeholder="1.000.000">
+                                <label class="form-label">Lavozimi</label>
+                                <input type="text" class="form-control" id="position" placeholder="Sotuvchi">
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Status</label>
-                                <select class="form-control" id="statusSelect">
-                                    <option value="active">Active</option>
-                                    <option value="inactive">Inactive</option>
-                                    <option value="pending">Pending</option>
-                                </select>
+                                <label class="form-label">Ish haqqi</label>
+                                <input type="number" class="form-control" id="price" placeholder="1.000.000">
                             </div>
                         </div>
                     </div>

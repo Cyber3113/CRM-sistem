@@ -42,12 +42,11 @@ function renderTable(items = []) {
                 <input type="checkbox" class="form-check-input row-checkbox" data-id="${item.id}">
             </td>
             <td>${item.id}</td>
+            <td>${item.workplace?.organization_name || 'Noma’lum'}</td>
             <td>${item.name}</td>
             <td>${item.phone_number}</td>
-            <td>${item.profit}</td>
-            <td>${item.damage}</td>
-            <td>${item.total_price}</td>
-            <td>Faol</td>
+            <td>${item.position}</td>
+            <td>${item.price}</td>
             <td>Edit</td>
         `;
         tbody.appendChild(row);

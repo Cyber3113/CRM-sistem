@@ -37,9 +37,9 @@ function renderTable(items = []) {
             <td>${item.phone_number}</td>
             <td>${item.price}</td>
             <td>${item.branch}</td>
+            <td>${item.task}</td>
             <td>${item.issued_date}</td>
             <td>${item.return_date}</td>
-            <td>${item.task}</td>
             <td>
                 <button class="btn btn-warning btn-sm edit-btn" data-id="${item.id}">
                     <i class="fas fa-pen"></i>
@@ -80,9 +80,10 @@ function openEditModal(task) {
     document.getElementById('editPhoneInput').value = task.phone_number;
     document.getElementById('editPriceInput').value = task.price;
     document.getElementById('editBranchInput').value = task.branch;
+    document.getElementById('editTaskInput').value = task.task;
     document.getElementById('editIssuedDateInput').value = task.issued_date;
     document.getElementById('editReturnDateInput').value = task.return_date;
-    document.getElementById('editTaskInput').value = task.task;
+
 
     // Show the modal
     const modal = new bootstrap.Modal(document.getElementById('editTaskModal'));
@@ -94,8 +95,15 @@ function openEditModal(task) {
 
 function openViewModal(task) {
     // Populate modal fields with task data
-    document.getElementById('taskTitle').innerText = `Mavzu: ${task.name}`;
-    document.getElementById('taskDetails').innerText = `Ma'lumot: ${task.task}`;
+    document.getElementById('taskTitle').innerText = `Ismi: ${task.name}`;
+    document.getElementById('taskPosition').innerText = `Lavozim: ${task.position}`;
+    document.getElementById('taskPhone').innerNumber = `Telfon raqam: ${task.phone_number}`;
+    document.getElementById('taskPrice').innerNumber = `Vazifa narxi: ${task.price}`;
+    document.getElementById('taskBranch').innerText = `Filial nomi: ${task.branch}`;
+    document.getElementById('taskDetails').innerText = `Vazifa matni: ${task.task}`;
+    document.getElementById('taskIssuedDate').innerText = `Vazifa boshlanish vaqti: ${task.issued_date}`;
+    document.getElementById('taskReturnDate').innerText = `Vazifa tugash vaqti: ${task.return_date}`;
+
 
     // Show the modal
     const modal = new bootstrap.Modal(document.getElementById('viewTaskModal'));

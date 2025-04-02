@@ -153,9 +153,9 @@
                     <th data-sort="damage">Telefon raqam ↕</th>
                     <th data-sort="income">Summasi ↕</th>
                     <th data-sort="branch">Filial ↕</th>
+                    <th data-sort="income">Vazifa ↕</th>
                     <th data-sort="income">Berilgan sana ↕</th>
                     <th data-sort="income">Topshirish sanasi ↕</th>
-                    <th>Vazifa</th>
                     <th data-sort="edit">Tahrirlash</th>
                     <th data-sort="view">Ko'rish</th>
                 </tr>
@@ -219,8 +219,14 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <h5 id="taskTitle" class="mb-3"></h5>
-                    <p id="taskDetails"></p>
+                    <p id="taskTitle" class="mb-3"></p>
+                    <p id="taskPosition" class="mb-3"></p>
+                    <p id="taskPhone" class="mb-3"></p>
+                    <p id="taskPrice" class="mb-3"></p>
+                    <p id="taskBranch" class="mb-3"></p>
+                    <p id="taskDetails" class="mb-3"></p>
+                    <p id="taskIssuedDate" class="mb-3"></p>
+                    <p id="taskReturnDate" class="mb-3"></p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Yopish</button>
@@ -238,37 +244,50 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="mb-3">
-                        <label class="form-label">Ism</label>
-                        <input type="text" class="form-control" id="editNameInput">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Lavozim</label>
-                        <input type="text" class="form-control" id="editPositionInput">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Telefon raqam</label>
-                        <input type="text" class="form-control" id="editPhoneInput">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Summasi</label>
-                        <input type="number" class="form-control" id="editPriceInput">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Filial</label>
-                        <input type="text" class="form-control" id="editBranchInput">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Berilgan sana</label>
-                        <input type="date" class="form-control" id="editIssuedDateInput">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Topshirish sanasi</label>
-                        <input type="date" class="form-control" id="editReturnDateInput">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Vazifa</label>
-                        <textarea class="form-control" id="editTaskInput"></textarea>
+                    <div class="input-control">
+                        <div>
+                            <div class="mb-3">
+                                <select id="workerSelect" class="form-control">
+                                    <option value="">Ishchini tanlang</option>
+                                    <option value="1">Ali</option>
+                                    <option value="2">Vali</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Ism</label>
+                                <input type="text" class="form-control" id="editNameInput">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Lavozim</label>
+                                <input type="text" class="form-control" id="editPositionInput">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Telefon raqam</label>
+                                <input type="text" class="form-control" id="editPhoneInput">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Filial</label>
+                                <input type="text" class="form-control" id="editBranchInput">
+                            </div>
+                        </div>
+                        <div>
+                            <div class="mb-3">
+                                <label class="form-label">Summasi</label>
+                                <input type="number" class="form-control" id="editPriceInput">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Vazifa</label>
+                                <textarea class="form-control" id="editTaskInput"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Berilgan sana</label>
+                                <input type="date" class="form-control" id="editIssuedDateInput">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Topshirish sanasi</label>
+                                <input type="date" class="form-control" id="editReturnDateInput">
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -291,6 +310,12 @@
 
                         <div>
                             <div class="mb-3">
+                                <label class="form-label" for="worker">Ishchini tanlang</label>
+                                <select id="worker" class="form-control">
+                                    <!-- Bu yerda ishchilar ro'yxati bo'ladi-->
+                                </select>
+                            </div>
+                            <div class="mb-3">
                                 <label class="form-label">Ism</label>
                                 <input type="text" class="form-control" id="nameInput" placeholder="Viktor">
                             </div>
@@ -304,12 +329,19 @@
                                        value="+998">
                             </div>
                             <div class="mb-3">
+                                <label class="form-label" for="branch">Filial</label>
+                                <input type="text" class="form-control" id="branch" placeholder="Sariosiyo">
+                            </div>
+                        </div>
+                        <div>
+                            <div class="mb-3">
                                 <label class="form-label">Summasi</label>
                                 <input type="number" class="form-control" id="returnDay" placeholder="1.000.000">
                             </div>
-
-                        </div>
-                        <div>
+                            <div class="mb-3">
+                                <label class="form-label">Vazifa haqida</label>
+                                <textarea class="form-control" id="task" placeholder="Vazifa"></textarea>
+                            </div>
                             <div class="mb-3">
                                 <label class="form-label" for="starDate">Berilgan sana</label>
                                 <input type="date" class="form-control" id="starDate">
@@ -317,10 +349,6 @@
                             <div class="mb-3">
                                 <label class="form-label" for="deadline">Topshirish sanasi</label>
                                 <input type="date" class="form-control" id="deadline">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label" for="branch">Filial</label>
-                                <input type="text" class="form-control" id="branch" placeholder="Sariosiyo">
                             </div>
                         </div>
 
